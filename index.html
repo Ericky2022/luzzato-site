@@ -17,14 +17,25 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
+    <!-- TOPO / AVISO -->
+    <div class="topbar">
+      <div class="container topbar-content">
+        <span>Frete para todo o Brasil em compras acima de R$ 499</span>
+        <span class="topbar-right">
+          Atendimento exclusivo • WhatsApp: (00) 00000-0000
+        </span>
+      </div>
+    </div>
+
     <!-- HEADER -->
     <header class="header">
       <div class="container header-content">
         <div class="logo">
-          <span>Luzzato</span>
+          <span class="logo-mark"></span>
+          <span class="logo-text">Luzzato</span>
         </div>
 
-        <nav class="nav">
+        <nav class="nav" id="mainNav">
           <a href="#colecoes">Coleções</a>
           <a href="#destaques">Destaques</a>
           <a href="#sobre">Sobre</a>
@@ -32,7 +43,17 @@
         </nav>
 
         <div class="header-actions">
-          <button class="btn-outline">Minha conta</button>
+          <button class="btn-outline header-account">
+            Minha conta
+          </button>
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </header>
@@ -40,65 +61,143 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <p class="hero-subtitle">Nova Coleção 2025</p>
-        <h1 class="hero-title">
-          Elegância que atravessa <span>estações</span>.
-        </h1>
-        <p class="hero-text">
-          Peças exclusivas, caimento perfeito e detalhes que refletem
-          o seu estilo. Descubra a nova experiência Luzzato.
-        </p>
-        <div class="hero-actions">
-          <a href="#colecoes" class="btn-primary">Ver coleções</a>
-          <a href="#destaques" class="btn-secondary">Ver destaques</a>
+      <div class="container hero-layout" data-animate="fade-up">
+        <div class="hero-content">
+          <p class="hero-subtitle">Coleção Inverno 2025</p>
+          <h1 class="hero-title">
+            Elegância que atravessa
+            <span>estações</span>.
+          </h1>
+          <p class="hero-text">
+            Peças em alfaiataria, tecidos nobres e caimento
+            impecável. A nova coleção Luzzato foi criada para quem
+            não abre mão de sofisticação em cada detalhe.
+          </p>
+          <div class="hero-actions">
+            <a href="#colecoes" class="btn-primary">
+              Ver coleções
+            </a>
+            <a href="#destaques" class="btn-secondary">
+              Ver destaques
+            </a>
+          </div>
+
+          <div class="hero-badges">
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              <p>
+                Produção limitada <br />
+                <span>Edições numeradas</span>
+              </p>
+            </div>
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              <p>
+                Curadoria exclusiva <br />
+                <span>Equipe especializada</span>
+              </p>
+            </div>
+          </div>
         </div>
+
+        <aside class="hero-card" data-animate="fade-up">
+          <div class="hero-card-image"></div>
+          <div class="hero-card-body">
+            <p class="hero-card-label">Peça em destaque</p>
+            <h3>Blazer Alfaiataria Noir</h3>
+            <p class="hero-card-text">
+              Ombreiras suaves, corte ajustado e tecido italiano.
+              Um clássico atemporal da nova coleção.
+            </p>
+            <p class="hero-card-price">R$ 749,90</p>
+            <button class="btn-secondary hero-card-button">
+              Ver detalhes
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits">
+      <div class="container benefits-grid" data-animate="fade-up">
+        <div class="benefit-item">
+          <h4>Frete premium</h4>
+          <p>Envio rápido e seguro para todo o Brasil.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Parcelamento</h4>
+          <p>Até 6x sem juros nos principais cartões.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Troca facilitada</h4>
+          <p>Primeira troca gratuita em até 30 dias.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL / BANNER -->
+    <section class="editorial" data-animate="fade-up">
+      <div class="container editorial-card">
+        <div class="editorial-text">
+          <span class="editorial-tag">Editorial</span>
+          <h2>Luxury Essentials</h2>
+          <p>
+            Uma seleção curada de peças-chave para construir um
+            guarda-roupa versátil, sofisticado e atemporal. Do
+            escritório a eventos especiais, com a mesma elegância.
+          </p>
+          <button class="btn-primary btn-editorial">
+            Ver seleção
+          </button>
+        </div>
+        <div class="editorial-image"></div>
       </div>
     </section>
 
     <!-- COLEÇÕES -->
     <section id="colecoes" class="section section-light">
-      <div class="container">
+      <div class="container" data-animate="fade-up">
         <div class="section-header">
           <h2>Coleções Luzzato</h2>
           <p>
-            Descubra nossas linhas exclusivas, pensadas para cada
-            momento do seu dia.
+            Linhas exclusivas, pensadas para acompanhar a sua
+            rotina com elegância – do casual ao black tie.
           </p>
         </div>
 
         <div class="grid-3">
-          <article class="collection-card">
+          <article class="collection-card" data-animate="fade-up">
             <div class="collection-image collection-image-1"></div>
             <div class="collection-body">
               <h3>Feminino</h3>
               <p>
-                Silhuetas refinadas, detalhes delicados e um toque de
-                ousadia para quem gosta de marcar presença.
+                Vestidos, blazers e conjuntos que equilibram
+                feminilidade, força e sofisticação.
               </p>
               <button class="link-button">Ver peças</button>
             </div>
           </article>
 
-          <article class="collection-card">
+          <article class="collection-card" data-animate="fade-up">
             <div class="collection-image collection-image-2"></div>
             <div class="collection-body">
               <h3>Masculino</h3>
               <p>
-                Alfaiataria moderna, cortes precisos e conforto em
-                cada detalhe. O clássico revisitado.
+                Alfaiataria contemporânea, camisas e calças de
+                caimento preciso para o dia e a noite.
               </p>
               <button class="link-button">Ver peças</button>
             </div>
           </article>
 
-          <article class="collection-card">
+          <article class="collection-card" data-animate="fade-up">
             <div class="collection-image collection-image-3"></div>
             <div class="collection-body">
               <h3>Acessórios</h3>
               <p>
-                Bolsas, cintos e detalhes que transformam um bom look
-                em uma assinatura de estilo.
+                Bolsas, cintos e detalhes que transformam o look em
+                assinatura pessoal.
               </p>
               <button class="link-button">Ver peças</button>
             </div>
@@ -109,17 +208,18 @@
 
     <!-- DESTAQUES -->
     <section id="destaques" class="section">
-      <div class="container">
+      <div class="container" data-animate="fade-up">
         <div class="section-header">
           <h2>Destaques Luzzato</h2>
           <p>
-            Seleção especial de peças que traduzem o DNA da marca.
+            Peças favoritas de quem já escolheu viver a experiência
+            Luzzato.
           </p>
         </div>
 
         <div class="grid-4 product-grid">
           <!-- Produto 1 -->
-          <article class="product-card">
+          <article class="product-card" data-animate="fade-up">
             <div class="product-image"></div>
             <div class="product-body">
               <h3>Blazer Alfaiataria Noir</h3>
@@ -129,7 +229,7 @@
           </article>
 
           <!-- Produto 2 -->
-          <article class="product-card">
+          <article class="product-card" data-animate="fade-up">
             <div class="product-image"></div>
             <div class="product-body">
               <h3>Vestido Seda Champagne</h3>
@@ -139,7 +239,7 @@
           </article>
 
           <!-- Produto 3 -->
-          <article class="product-card">
+          <article class="product-card" data-animate="fade-up">
             <div class="product-image"></div>
             <div class="product-body">
               <h3>Camisa Slim Branco Puro</h3>
@@ -149,7 +249,7 @@
           </article>
 
           <!-- Produto 4 -->
-          <article class="product-card">
+          <article class="product-card" data-animate="fade-up">
             <div class="product-image"></div>
             <div class="product-body">
               <h3>Bolsa Couro Classic</h3>
@@ -163,7 +263,7 @@
 
     <!-- SOBRE -->
     <section id="sobre" class="section section-light">
-      <div class="container about">
+      <div class="container about" data-animate="fade-up">
         <div class="about-text">
           <h2>Sobre a Luzzato</h2>
           <p>
@@ -172,9 +272,10 @@
             entregamos experiências, memórias e histórias.
           </p>
           <p>
-            Cada coleção é criada com olhar atento aos detalhes, desde
-            a escolha dos tecidos até os acabamentos finais. Nosso
-            compromisso é com a elegância atemporal.
+            Nossas coleções são criadas com olhar atento aos detalhes:
+            da escolha dos tecidos aos acabamentos finais. Produções
+            cuidadosamente limitadas garantem exclusividade e
+            atemporalidade em cada criação.
           </p>
         </div>
       </div>
@@ -182,7 +283,7 @@
 
     <!-- CONTATO / NEWSLETTER -->
     <section id="contato" class="section section-contrast">
-      <div class="container newsletter">
+      <div class="container newsletter" data-animate="fade-up">
         <div>
           <h2>Fique por dentro das novidades</h2>
           <p>
@@ -206,7 +307,10 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container footer-content">
-        <span>&copy; <span id="year"></span> Luzzato. Todos os direitos reservados.</span>
+        <span
+          >&copy; <span id="year"></span> Luzzato. Todos os
+          direitos reservados.</span
+        >
         <div class="footer-links">
           <a href="#">Política de privacidade</a>
           <a href="#">Termos de uso</a>
