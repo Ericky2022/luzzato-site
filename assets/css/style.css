@@ -355,9 +355,7 @@ body::after {
   display: flex;
   align-items: center;
   color: var(--text-light);
-  background-image: url("https://images.pexels.com/photos/6311668/pexels-photo-6311668.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
-  background-position: center;
+  background-color: #050506;
 }
 
 .hero-overlay {
