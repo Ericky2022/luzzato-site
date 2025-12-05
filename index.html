@@ -1,425 +1,1203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luzzato | Moda de Alto Padrão</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luzzato Móveis</title>
 
-    <!-- Fontes Google -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <!-- TOPO / AVISO -->
-    <div class="topbar">
-      <div class="container topbar-content">
-        <span>Frete premium para todo o Brasil em compras acima de R$ 499</span>
-        <span class="topbar-right">
-          Atendimento exclusivo • WhatsApp: (00) 00000-0000
-        </span>
-      </div>
-    </div>
+  <style>
+    :root {
+      --bg-main: #050505;
+      --bg-section: #0d0d0d;
+      --bg-card: #141414;
+      --text-primary: #ffffff;
+      --text-muted: #b3b3b3;
+      --accent: #c7a87c;
+      --accent-soft: rgba(199, 168, 124, 0.12);
+      --border-soft: #262626;
+      --radius-lg: 18px;
+      --radius-md: 10px;
+      --transition-fast: 0.2s ease;
+      --max-width: 1180px;
+    }
 
-    <!-- “MOLDURA” DA PÁGINA -->
-    <div class="page-frame">
-      <!-- HEADER -->
-      <header class="header">
-        <div class="container header-content">
-          <div class="logo">
-            <span class="logo-mark"></span>
-            <span class="logo-text">Luzzato</span>
-          </div>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-          <nav class="nav" id="mainNav">
-            <a href="#colecoes">Coleções</a>
-            <a href="#lookbook">Lookbook</a>
-            <a href="#sobre">Manifesto</a>
-            <a href="#contato">Contato</a>
-          </nav>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #111 0, #050505 40%, #000 100%);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
 
-          <div class="header-actions">
-            <button class="btn-outline header-account">Minha conta</button>
-            <button
-              class="menu-toggle"
-              id="menuToggle"
-              aria-label="Abrir menu"
-            >
-              <span></span>
-              <span></span>
-            </button>
-          </div>
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.75), transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      letter-spacing: .25em;
+      font-size: .75rem;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      font-size: .9rem;
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.45rem;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      font-size: .9rem;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.6);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, 0.02);
+      transform: translateY(-1px);
+      border-color: var(--accent);
+    }
+
+    .primary-btn,
+    .ghost-btn {
+      padding: .6rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-size: .85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .primary-btn {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .primary-btn:hover {
+      background: #d7b889;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+    }
+
+    .ghost-btn {
+      background: transparent;
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .ghost-btn:hover {
+      border-color: var(--accent);
+      background: rgba(199, 168, 124, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero-sub {
+      margin-top: 1rem;
+      max-width: 21rem;
+      font-size: .95rem;
+      color: var(--text-muted);
+    }
+
+    .hero-cta {
+      margin-top: 2.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero-note {
+      margin-top: .8rem;
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 2.5rem;
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      display: block;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      margin-bottom: .1rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem .7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(199, 168, 124, 0.4);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-image-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: radial-gradient(circle at top, #202020, #050505 55%, #000 100%);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.85);
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero-main-img {
+      flex: 2.1;
+      background-image: url("https://images.pexels.com/photos/6964079/pexels-photo-6964079.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-side {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      padding: 1.4rem 1.2rem;
+      gap: 1rem;
+    }
+
+    .hero-side-card {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: var(--radius-md);
+      padding: 1rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: .8rem;
+    }
+
+    .hero-side-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      margin-bottom: .3rem;
+    }
+
+    .hero-side-card span {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: .4rem;
+    }
+
+    .hero-side-card p {
+      color: var(--text-muted);
+    }
+
+    .hero-pill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 999px;
+      padding: .45rem .9rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-pill strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* SECTION TITLES */
+
+    section {
+      padding: 2.8rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-kicker {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      font-size: .9rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    /* COLEÇÕES EM DESTAQUE */
+
+    .section-collections {
+      background: radial-gradient(circle at top, #151515 0, #050505 70%);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .collection-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .collection-image {
+      height: 170px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .collection-card:nth-child(1) .collection-image {
+      background-image: url("https://images.pexels.com/photos/6636241/pexels-photo-6636241.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .collection-card:nth-child(2) .collection-image {
+      background-image: url("https://images.pexels.com/photos/8136913/pexels-photo-8136913.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .collection-card:nth-child(3) .collection-image {
+      background-image: url("https://images.pexels.com/photos/6585763/pexels-photo-6585763.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .collection-body {
+      padding: 1.1rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      flex: 1;
+    }
+
+    .collection-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .collection-desc {
+      font-size: .85rem;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .collection-meta {
+      font-size: .8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-top: .4rem;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+      border-color: rgba(199, 168, 124, 0.7);
+      background: #111;
+    }
+
+    /* BEST SELLERS */
+
+    .section-bestsellers {
+      padding-top: 2.6rem;
+    }
+
+    .bestsellers-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 1.8rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .product-image {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-card:nth-child(1) .product-image {
+      background-image: url("https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .product-card:nth-child(2) .product-image {
+      background-image: url("https://images.pexels.com/photos/3626583/pexels-photo-3626583.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .product-card:nth-child(3) .product-image {
+      background-image: url("https://images.pexels.com/photos/6588547/pexels-photo-6588547.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .product-card:nth-child(4) .product-image {
+      background-image: url("https://images.pexels.com/photos/6964078/pexels-photo-6964078.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .product-body {
+      padding: .9rem .95rem 1.1rem;
+    }
+
+    .product-name {
+      font-size: .92rem;
+      font-weight: 500;
+      margin-bottom: .25rem;
+    }
+
+    .product-price {
+      font-size: .88rem;
+      color: var(--accent);
+      margin-bottom: .45rem;
+    }
+
+    .product-detail {
+      font-size: .75rem;
+      color: var(--text-muted);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.8);
+      border-color: rgba(199, 168, 124, 0.7);
+      background: #111;
+    }
+
+    /* WHY LUZZATO */
+
+    .section-why {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 2.3rem;
+      align-items: center;
+    }
+
+    .why-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .why-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.1rem 1rem;
+      border: 1px solid var(--border-soft);
+      font-size: .85rem;
+    }
+
+    .why-card h4 {
+      font-size: .9rem;
+      margin-bottom: .3rem;
+      font-weight: 500;
+    }
+
+    .why-card p {
+      color: var(--text-muted);
+      font-size: .8rem;
+    }
+
+    .why-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      margin-bottom: .5rem;
+    }
+
+    .why-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background-image: url("https://images.pexels.com/photos/6794935/pexels-photo-6794935.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+      min-height: 260px;
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.85);
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      padding-bottom: 3rem;
+    }
+
+    .newsletter-inner {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top left, rgba(199, 168, 124, 0.16), #050505 55%);
+      padding: 1.7rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .newsletter-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+
+    .newsletter-text p {
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+    }
+
+    .newsletter-input {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: .55rem .9rem;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .newsletter-input input {
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: .85rem;
+      flex: 1;
+    }
+
+    .newsletter-input input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background: #020202;
+      padding: 2rem 0 1.8rem;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+      margin-bottom: 1.4rem;
+      font-size: .82rem;
+    }
+
+    .footer-logo {
+      margin-bottom: .7rem;
+      font-size: .8rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .footer-logo span {
+      display: inline-block;
+      padding: .18rem .6rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      margin-right: .4rem;
+    }
+
+    .footer-text {
+      color: var(--text-muted);
+      max-width: 18rem;
+      font-size: .8rem;
+    }
+
+    .footer-title {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--text-muted);
+      margin-bottom: .6rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: .25rem;
+    }
+
+    .footer-links a {
+      color: var(--text-primary);
+      font-size: .82rem;
+      opacity: .85;
+      transition: opacity var(--transition-fast), color var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: .75rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: .9rem;
+    }
+
+    .footer-cards {
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-card-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: .16rem .55rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      nav {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .header-inner {
+        padding-inline: 1rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-image-wrapper {
+        order: -1;
+      }
+
+      .collections-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .why-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .products-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .why-items {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-block: 2rem;
+      }
+
+      .hero-inner {
+        gap: 2rem;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container header-inner">
+        <div class="logo">
+          <div class="logo-mark">LZ</div>
+          LUZZATO
         </div>
-      </header>
 
-      <!-- HERO -->
-      <!-- <section class="hero">
+        <nav aria-label="Navegação principal">
+          <a href="#" class="nav-link">Coleções</a>
+          <a href="#" class="nav-link">Sofás</a>
+          <a href="#" class="nav-link">Mesas</a>
+          <a href="#" class="nav-link">Cadeiras</a>
+          <a href="#" class="nav-link">Decoração</a>
+          <a href="#" class="nav-link">Contato</a>
+        </nav>
 
-        <div class="hero-overlay"></div>
-        <div class="container hero-layout" data-animate="fade-up">
-          <div class="hero-content">
-            <p class="hero-subtitle">Coleção Inverno 2025</p>
-            <h1 class="hero-title">
-              Moda autoral, <span>alfaiataria precisa</span>
-              e detalhes que não passam despercebidos.
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Buscar">
+            🔍
+          </button>
+          <button class="icon-btn" aria-label="Minha conta">
+            👤
+          </button>
+          <button class="icon-btn" aria-label="Carrinho">
+            🛒
+          </button>
+          <button class="mobile-menu-toggle icon-btn" aria-label="Menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="hero-badge">
+              coleção 2025 · móveis autorais
+            </div>
+            <h1 class="hero-heading">
+              O design que <br />
+              transforma <br />
+              ambientes.
             </h1>
-            <p class="hero-text">
-              A nova coleção Luzzato interpreta o luxo contemporâneo:
-              volumes sutis, tecidos nobres e caimento impecável para
-              noites longas e dias inesquecíveis.
+            <p class="hero-sub">
+              Peças assinadas, acabamentos nobres e conforto absoluto
+              para quem vê a casa como extensão da própria identidade.
             </p>
-            <div class="hero-actions">
-              <a href="#colecoes" class="btn-primary"> Ver coleções </a>
-              <a href="#destaques" class="btn-secondary"> Peças em destaque </a>
-            </div>
 
-            <div class="hero-badges">
-              <div class="hero-badge">
-                <span class="badge-dot"></span>
-                <p>
-                  Edições limitadas<br />
-                  <span>Coleções exclusivas por temporada</span>
-                </p>
-              </div>
-              <div class="hero-badge">
-                <span class="badge-dot"></span>
-                <p>
-                  Curadoria própria<br />
-                  <span>Design assinado por equipe Luzzato</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <aside class="hero-card" data-animate="fade-up">
-            <div class="hero-card-image"></div>
-            <div class="hero-card-body">
-              <p class="hero-card-label">Peça destaque da coleção</p>
-              <h3>Blazer Alfaiataria Noir</h3>
-              <p class="hero-card-text">
-                Estrutura suave, ombros marcados na medida certa e tecido
-                italiano com toque sedoso. Um clássico atualizado.
-              </p>
-              <p class="hero-card-price">R$ 749,90</p>
-              <button class="btn-secondary hero-card-button">
-                Ver detalhes da peça
+            <div class="hero-cta">
+              <button class="primary-btn">
+                Ver coleção completa
+              </button>
+              <button class="ghost-btn">
+                Agendar atendimento
               </button>
             </div>
-          </aside>
-        </div>
 
-        <div class="hero-scroll-hint">
-          <span>Descubra a coleção</span>
-        </div>
-      </section> -->
-      
-      <section class="hero">
-  <div class="hero-carousel">
-    <div class="hero-slide" style="background-image: url('assets/img/1-scaled.png');"></div>
-    <div class="hero-slide" style="background-image: url('assets/img/2-scaled.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('assets/img/3-scaled.jpg');"></div>
-  </div>
-
-  <div class="hero-overlay"></div>
-
-  <div class="container hero-layout" data-animate="fade-up">
-    <!-- (todo o conteúdo hero-content permanece igual) -->
-  </div>
-
-  <div class="hero-scroll-hint">
-    <span>Descubra a coleção</span>
-  </div>
-</section>
-      <!-- MARQUEE / FAIXA EDITORIAL -->
-      <section class="marquee">
-        <div class="marquee-track">
-          <span>LUZZATO STUDIO • ALFAIATARIA CONTEMPORÂNEA • EDIÇÕES
-            LIMITADAS • LUXURY ESSENTIALS •</span>
-          <span>LUZZATO STUDIO • ALFAIATARIA CONTEMPORÂNEA • EDIÇÕES
-            LIMITADAS • LUXURY ESSENTIALS •</span>
-        </div>
-      </section>
-
-      <!-- BENEFÍCIOS -->
-      <section class="benefits">
-        <div class="container benefits-grid" data-animate="fade-up">
-          <div class="benefit-item">
-            <h4>Frete premium</h4>
-            <p>Envio rápido e seguro com embalagem exclusiva.</p>
-          </div>
-          <div class="benefit-item">
-            <h4>Parcelamento</h4>
-            <p>Até 6x sem juros nos principais cartões.</p>
-          </div>
-          <div class="benefit-item">
-            <h4>Troca facilitada</h4>
-            <p>Primeira troca gratuita em até 30 dias.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- EDITORIAL / CAMPANHA -->
-      <section class="editorial" data-animate="fade-up">
-        <div class="container editorial-card">
-          <div class="editorial-text">
-            <span class="editorial-tag">Campanha</span>
-            <h2>Luxury Essentials</h2>
-            <p>
-              Uma seleção curada de peças-chave para um guarda-roupa
-              versátil e atemporal. Do escritório ao jantar, a mesma
-              elegância em diferentes atmosferas.
+            <p class="hero-note">
+              Entrega nacional · Produção sob medida · Pagamento seguro em até 10x
             </p>
-            <button class="btn-primary btn-editorial">
-              Ver seleção da campanha
-            </button>
-          </div>
-          <div class="editorial-image"></div>
-        </div>
-      </section>
 
-      <!-- LOOKBOOK HORIZONTAL -->
-      <section class="section section-dark" id="lookbook">
-        <div class="container" data-animate="fade-up">
-          <div class="section-header section-header-left">
-            <h2>Lookbook Luzzato</h2>
-            <p>
-              Combinações, texturas e volumes que traduzem o olhar Luzzato
-              para a estação.
-            </p>
+            <div class="hero-meta">
+              <div>
+                <strong>+1.200</strong>
+                ambientes assinados
+              </div>
+              <div>
+                <strong>15 anos</strong>
+                de experiência em mobiliário premium
+              </div>
+              <div>
+                <strong>4,9★</strong>
+                avaliação média dos clientes
+              </div>
+            </div>
           </div>
 
-          <div class="lookbook-scroller">
-            <article class="lookbook-card">
-              <div class="lookbook-border">
-                <div class="lookbook-inner lookbook-img-1">
-                  <div class="lookbook-label">Noite</div>
-                  <div class="lookbook-caption">
-                    Tailleur em tom profundo
-                    <span>
-                      Silhueta marcada, ideal para jantares e eventos.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="lookbook-card">
-              <div class="lookbook-border">
-                <div class="lookbook-inner lookbook-img-2">
-                  <div class="lookbook-label">Casual chic</div>
-                  <div class="lookbook-caption">
-                    Denim & seda
-                    <span>
-                      Combinação de texturas para o dia a dia sofisticado.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="lookbook-card">
-              <div class="lookbook-border">
-                <div class="lookbook-inner lookbook-img-3">
-                  <div class="lookbook-label">Essenciais</div>
-                  <div class="lookbook-caption">
-                    Branco absoluto
-                    <span>
-                      Peças que funcionam em qualquer guarda-roupa.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="lookbook-card">
-              <div class="lookbook-border">
-                <div class="lookbook-inner lookbook-img-4">
-                  <div class="lookbook-label">Detalhes</div>
-                  <div class="lookbook-caption">
-                    Texturas & volumes
-                    <span>
-                      Quando o acabamento fala mais alto que a estampa.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- COLEÇÕES -->
-      <section id="colecoes" class="section section-light">
-        <div class="container" data-animate="fade-up">
-          <div class="section-header">
-            <h2>Coleções Luzzato</h2>
-            <p>
-              Linhas exclusivas, pensadas para acompanhar a sua rotina com
-              elegância – do casual ao black tie.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <article class="collection-card" data-animate="fade-up">
-              <div class="collection-image collection-image-1"></div>
-              <div class="collection-body">
-                <h3>Feminino</h3>
+          <div class="hero-image-wrapper" aria-hidden="true">
+            <div class="hero-main-img"></div>
+            <div class="hero-side">
+              <div class="hero-side-card">
+                <span>sofá milano · linho grafite</span>
+                <h4>Conforto que se nota à distância.</h4>
                 <p>
-                  Vestidos, blazers e conjuntos que equilibram
-                  feminilidade, força e sofisticação.
+                  Profundidade generosa, percintas italianas e
+                  espuma de alta resiliência para longas horas de
+                  descanso sem perder o desenho.
                 </p>
-                <button class="link-button">Ver peças</button>
               </div>
-            </article>
-
-            <article class="collection-card" data-animate="fade-up">
-              <div class="collection-image collection-image-2"></div>
-              <div class="collection-body">
-                <h3>Masculino</h3>
+              <div class="hero-side-card">
+                <span>curadoria luzzato</span>
+                <h4>Madeiras selecionadas peça a peça.</h4>
                 <p>
-                  Alfaiataria contemporânea, camisas e calças de caimento
-                  preciso.
+                  Estruturas em madeira maciça com certificação,
+                  tonalidades escolhidas para dialogar com o seu
+                  projeto arquitetônico.
                 </p>
-                <button class="link-button">Ver peças</button>
               </div>
-            </article>
-
-            <article class="collection-card" data-animate="fade-up">
-              <div class="collection-image collection-image-3"></div>
-              <div class="collection-body">
-                <h3>Acessórios</h3>
-                <p>
-                  Bolsas, cintos e detalhes que transformam o look em
-                  assinatura pessoal.
-                </p>
-                <button class="link-button">Ver peças</button>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- DESTAQUES -->
-      <section id="destaques" class="section">
-        <div class="container" data-animate="fade-up">
-          <div class="section-header">
-            <h2>Destaques da coleção</h2>
-            <p>
-              Peças favoritas de quem já escolheu viver a experiência
-              Luzzato.
-            </p>
-          </div>
-
-          <div class="grid-4 product-grid">
-            <article class="product-card" data-animate="fade-up">
-              <div class="product-image"></div>
-              <div class="product-body">
-                <h3>Blazer Alfaiataria Noir</h3>
-                <p class="product-price">R$ 749,90</p>
-                <button class="btn-small">Ver detalhes</button>
-              </div>
-            </article>
-
-            <article class="product-card" data-animate="fade-up">
-              <div class="product-image"></div>
-              <div class="product-body">
-                <h3>Vestido Seda Champagne</h3>
-                <p class="product-price">R$ 899,90</p>
-                <button class="btn-small">Ver detalhes</button>
-              </div>
-            </article>
-
-            <article class="product-card" data-animate="fade-up">
-              <div class="product-image"></div>
-              <div class="product-body">
-                <h3>Camisa Slim Branco Puro</h3>
-                <p class="product-price">R$ 329,90</p>
-                <button class="btn-small">Ver detalhes</button>
-              </div>
-            </article>
-
-            <article class="product-card" data-animate="fade-up">
-              <div class="product-image"></div>
-              <div class="product-body">
-                <h3>Bolsa Couro Classic</h3>
-                <p class="product-price">R$ 1.199,90</p>
-                <button class="btn-small">Ver detalhes</button>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- MANIFESTO / SOBRE -->
-      <section id="sobre" class="section section-light">
-        <div class="container about" data-animate="fade-up">
-          <div class="about-text">
-            <h2>Manifesto Luzzato</h2>
-            <p>
-              A Luzzato nasceu com o propósito de unir sofisticação,
-              conforto e identidade em cada peça. Mais do que roupa,
-              entregamos experiências, memórias e histórias.
-            </p>
-            <p>
-              Cada coleção é desenvolvida com olhar atento aos detalhes:
-              da escolha dos tecidos aos acabamentos finais. Produções
-              cuidadosas, em quantidades limitadas, garantem exclusividade
-              e atemporalidade.
-            </p>
-
-            <div class="about-metrics">
-              <div class="metric">
-                <span>10+</span>
-                <p>Anos de trajetória em moda premium</p>
-              </div>
-              <div class="metric">
-                <span>4</span>
-                <p>Coleções autorais por ano</p>
-              </div>
-              <div class="metric">
-                <span>100%</span>
-                <p>Foco em caimento, conforto e acabamento</p>
+              <div class="hero-pill">
+                Produção sob medida a partir de
+                <strong>30 dias úteis</strong>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTATO / NEWSLETTER -->
-      <section id="contato" class="section section-contrast">
-        <div class="container newsletter" data-animate="fade-up">
-          <div>
-            <h2>Lista exclusiva Luzzato</h2>
-            <p>
-              Cadastre seu e-mail e receba lançamentos, pré-vendas,
-              coleções cápsula e convites para experiências Luzzato.
-            </p>
+      <!-- COLEÇÕES EM DESTAQUE -->
+      <section class="section-collections">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Coleções em destaque</div>
+            <div class="section-title">Escolha o seu universo</div>
+            <div class="section-subtitle">
+              Três linhas pensadas para estilos de vida diferentes,
+              todas com a mesma assinatura: proporção equilibrada
+              e acabamentos impecáveis.
+            </div>
           </div>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Seu melhor e-mail" required />
-            <button type="submit" class="btn-primary">Quero receber</button>
-          </form>
+
+          <div class="collections-grid">
+            <article class="collection-card">
+              <div class="collection-image"></div>
+              <div class="collection-body">
+                <div class="collection-name">Essência</div>
+                <p class="collection-desc">
+                  Tons claros, texturas naturais e uma atmosfera leve
+                  que faz o ambiente respirar.
+                </p>
+                <div class="collection-meta">Salas de estar luminosas</div>
+              </div>
+            </article>
+
+            <article class="collection-card">
+              <div class="collection-image"></div>
+              <div class="collection-body">
+                <div class="collection-name">Contemporânea</div>
+                <p class="collection-desc">
+                  Linhas retas, contrastes marcantes e sofisticação
+                  discreta para projetos urbanos.
+                </p>
+                <div class="collection-meta">Design para o agora</div>
+              </div>
+            </article>
+
+            <article class="collection-card">
+              <div class="collection-image"></div>
+              <div class="collection-body">
+                <div class="collection-name">Premium</div>
+                <p class="collection-desc">
+                  Couros selecionados, metais nobres e soluções
+                  de alto impacto para ambientes de destaque.
+                </p>
+                <div class="collection-meta">Peças de assinatura</div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <!-- FOOTER -->
-      <footer class="footer">
-        <div class="container footer-content">
-          <span
-            >&copy; <span id="year"></span> Luzzato. Todos os direitos
-            reservados.</span
-          >
-          <div class="footer-links">
-            <a href="#">Política de privacidade</a>
-            <a href="#">Termos de uso</a>
+      <!-- BEST SELLERS -->
+      <section class="section-bestsellers">
+        <div class="container">
+          <div class="bestsellers-header">
+            <div class="section-header" style="margin-bottom:0;">
+              <div class="section-kicker">Mais desejados</div>
+              <div class="section-title">Best sellers da Luzzato</div>
+            </div>
+            <button class="ghost-btn">
+              Ver todos os produtos
+            </button>
+          </div>
+
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="product-image"></div>
+              <div class="product-body">
+                <div class="product-name">Sofá Milano · 3 lugares</div>
+                <div class="product-price">R$ 3.990,00</div>
+                <div class="product-detail">
+                  Estrutura em madeira maciça, linho areia,
+                  almofadas soltas.
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image"></div>
+              <div class="product-body">
+                <div class="product-name">Poltrona Verona</div>
+                <div class="product-price">R$ 1.890,00</div>
+                <div class="product-detail">
+                  Couro natural, base giratória em aço escovado.
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image"></div>
+              <div class="product-body">
+                <div class="product-name">Mesa de Jantar Roma</div>
+                <div class="product-price">R$ 4.890,00</div>
+                <div class="product-detail">
+                  Tampo em lâmina de nogueira e base escultural.
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image"></div>
+              <div class="product-body">
+                <div class="product-name">Cadeira Toscana</div>
+                <div class="product-price">R$ 890,00</div>
+                <div class="product-detail">
+                  Estofado em linho, pés em madeira avermelhada.
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
 
-    <script src="assets/js/main.js"></script>
-  </body>
+      <!-- POR QUE ESCOLHER -->
+      <section class="section-why">
+        <div class="container">
+          <div class="why-grid">
+            <div>
+              <div class="section-header">
+                <div class="section-kicker">Por que escolher a Luzzato</div>
+                <div class="section-title">Mais que móveis, experiências.</div>
+                <div class="section-subtitle">
+                  Cada peça é pensada para dialogar com a arquitetura
+                  do seu ambiente, unindo ergonomia, durabilidade e um
+                  olhar cuidadoso para cada detalhe.
+                </div>
+              </div>
+
+              <div class="why-items">
+                <article class="why-card">
+                  <div class="why-icon">◎</div>
+                  <h4>Design autoral</h4>
+                  <p>
+                    Assinaturas exclusivas e proporções refinadas que
+                    fogem do óbvio e valorizam o seu projeto.
+                  </p>
+                </article>
+
+                <article class="why-card">
+                  <div class="why-icon">✓</div>
+                  <h4>Materiais nobres</h4>
+                  <p>
+                    Tecidos de alta performance, couros naturais e
+                    madeiras selecionadas peça a peça.
+                  </p>
+                </article>
+
+                <article class="why-card">
+                  <div class="why-icon">⧗</div>
+                  <h4>Produção sob medida</h4>
+                  <p>
+                    Medidas, tecidos e acabamentos configuráveis para
+                    encaixar perfeitamente na sua rotina.
+                  </p>
+                </article>
+
+                <article class="why-card">
+                  <div class="why-icon">☏</div>
+                  <h4>Atendimento consultivo</h4>
+                  <p>
+                    Equipe preparada para acompanhar do projeto à
+                    entrega, inclusive com suporte pós-venda.
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div class="why-photo" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER -->
+      <section class="newsletter">
+        <div class="container">
+          <div class="newsletter-inner">
+            <div class="newsletter-text">
+              <h3>Receba lançamentos em primeira mão</h3>
+              <p>
+                Inscreva-se para conhecer novas coleções, peças
+                exclusivas e condições especiais para projetos.
+              </p>
+            </div>
+            <form class="newsletter-form" onsubmit="event.preventDefault();">
+              <div class="newsletter-input">
+                ✉
+                <input type="email" placeholder="Seu melhor e-mail" required />
+              </div>
+              <button class="primary-btn" type="submit">
+                Cadastrar
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span>LZ</span> Luzzato Móveis
+            </div>
+            <p class="footer-text">
+              Mobiliário premium pensado para quem entende que
+              cada ambiente merece uma peça à altura da história
+              que ali será vivida.
+            </p>
+          </div>
+
+          <div>
+            <div class="footer-title">Loja</div>
+            <ul class="footer-links">
+              <li><a href="#">Sofás</a></li>
+              <li><a href="#">Poltronas</a></li>
+              <li><a href="#">Salas de jantar</a></li>
+              <li><a href="#">Mesas laterais</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-title">Institucional</div>
+            <ul class="footer-links">
+              <li><a href="#">Sobre a Luzzato</a></li>
+              <li><a href="#">Projetos</a></li>
+              <li><a href="#">Atendimento a arquitetos</a></li>
+              <li><a href="#">Política de trocas</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-title">Atendimento</div>
+            <ul class="footer-links">
+              <li><a href="#">WhatsApp comercial</a></li>
+              <li><a href="#">E-mail</a></li>
+              <li><a href="#">Nossas lojas físicas</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>© <span id="year"></span> Luzzato Móveis. Todos os direitos reservados.</div>
+          <div class="footer-cards">
+            <div class="footer-card-pill">Visa</div>
+            <div class="footer-card-pill">Mastercard</div>
+            <div class="footer-card-pill">Elo</div>
+            <div class="footer-card-pill">Pix</div>
+            <div class="footer-card-pill">Boleto</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // ano automático no footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
