@@ -354,8 +354,13 @@ body::after {
   min-height: 86vh;
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   color: var(--text-light);background-size: cover;
   background-position: center;
+=======
+  color: var(--text-light);
+  background-color: #050506;
+>>>>>>> dcfb3ddbca7f5de6a490017d6513e11e6b47fcf4
 }
 
 .hero-overlay {
