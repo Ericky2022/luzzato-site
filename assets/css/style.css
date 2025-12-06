@@ -870,21 +870,54 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  /* título e textos do hero ocupando a largura toda */
+  .hero-heading {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+
+  .hero-sub {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .primary-btn,
+  .hero-cta .ghost-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* imagem + cards */
   .hero-image-wrapper {
     flex-direction: column;
-    height: auto;
+    align-items: center;
+    padding: 1.5rem 1.25rem 2rem;
+    gap: 1.25rem;
+    min-height: auto;
   }
 
   .hero-main-img {
     width: 100%;
-    min-height: 260px;
-    margin-top: 20px;
-    border-radius: 14px;
   }
 
   .hero-main-img img {
-    height: 100%;
-    object-fit: contain;
+    max-width: 100%;
   }
 }
 
