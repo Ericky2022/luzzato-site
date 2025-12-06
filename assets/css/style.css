@@ -906,13 +906,14 @@ footer {
     position: fixed;
     inset: 0;
     max-width: 360px;
-    width: 80%;
+    width: 20%;
     margin-left: auto;
     background: rgba(5, 5, 5, 0.96);
     backdrop-filter: blur(16px);
     border-left: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.55);
     flex-direction: column;
+    display: grid;
     flex: 0 0 auto;
     padding: 5rem 2rem 2.5rem;
     gap: 1.25rem;
