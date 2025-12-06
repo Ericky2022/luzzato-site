@@ -898,6 +898,15 @@ footer {
 /* RESPONSIVE */
 
 @media (max-width: 960px) {
+  .page {
+    padding-top: 5rem;
+  }
+
+  .site-header {
+    position: fixed;
+    width: 100%;
+  }
+
   .header-inner {
     padding-inline: 1rem;
   }
