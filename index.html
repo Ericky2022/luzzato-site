@@ -15,21 +15,30 @@
   <body>
     <div class="page">
       <!-- HEADER -->
-      <header>
-        <div class="container header-inner">
-          <div class="logo">
-            <div class="logo-mark">LZ</div>
-            LUZZATO
-          </div>
+      <header class="site-header">
+        <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">LZ</span>
+      <span class="logo-text">LUZZATO</span>
+    </a>
 
-          <nav class="header-nav">
-            <a href="./index.html">Home</a>
-            <a href="./sala/index.html">Sala</a>
-            <a href="./quarto/index.html">Quarto</a>
-            <a href="./infantil/index.html">Infantil</a>
-            <a href="./cozinha/index.html">Cozinha</a>
-            <a href="./escritorio/index.html">Escritório</a>
-          </nav>
+    <!-- Botão hamburguer -->
+    <button class="menu-toggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menu principal -->
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="sala/index.html">Sala</a>
+      <a href="quarto/index.html">Quarto</a>
+      <a href="infantil/index.html">Infantil</a>
+      <a href="cozinha/index.html">Cozinha</a>
+      <a href="escritorio/index.html">Escritório</a>
+    </nav>
+  </div>
 
           <div class="header-actions">
             <button class="icon-btn" aria-label="Buscar">🔍</button>
@@ -502,5 +511,6 @@
       // ano automático no footer
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="/assets/css/js/main.js"></script>
   </body>
 </html>

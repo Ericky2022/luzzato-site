@@ -38,7 +38,6 @@
     }
 
     .page {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -1004,5 +1003,196 @@
 @media (max-width: 600px) {
   .departments-grid {
     grid-template-columns: 1fr;
+  }
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(5, 5, 5, 0.96);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Logo */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid #c7a87c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+.logo-text {
+  letter-spacing: 0.4em;
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+/* Navegação desktop */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.main-nav a:hover {
+  color: #ffffff;
+}
+
+/* Botão hamburguer (desktop some) */
+
+.menu-toggle {
+  display: none;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle span + span {
+  margin-top: 6px;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .header-inner {
+    padding-inline: 1rem;
+  }
+
+  /* Nav vira painel lateral */
+  .main-nav {
+    position: fixed;
+    inset: 0 0 0 35%;
+    background: #050505;
+    flex-direction: column;
+    padding: 5rem 1.5rem 2rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .main-nav a {
+    font-size: 1rem;
+  }
+
+  .main-nav.nav-open {
+    transform: translateX(0);
+  }
+
+  /* Exibe o hamburguer no mobile */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Animação do X quando aberto */
+  .menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  .menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  /* trava scroll qdo menu aberto */
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Se tiver um container principal do hero, tipicamente .hero ou .hero-grid */
+  .hero-section,
+  .hero,
+  .hero-inner {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+
+  /* Texto do hero ocupando a largura toda, centralizado ou alinhado à esquerda */
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-ctas a,
+  .hero-ctas button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Bloco da imagem do sofá */
+  .hero-image-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1.25rem 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-main-img {
+    width: 100%;
+    min-height: 220px;
+    background-size: contain;
+    background-position: center bottom;
+  }
+
+  .hero-side {
+    width: 100%;
   }
 }

@@ -63,3 +63,16 @@ if ("IntersectionObserver" in window) {
   // Fallback: se não tiver IntersectionObserver, mostra tudo
   animatedElements.forEach((el) => el.classList.add("is-visible"));
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("nav-open");
+    toggle.classList.toggle("is-active");
+    document.body.classList.toggle("menu-open");
+  });
+});
