@@ -936,7 +936,9 @@ footer {
   }
 
   .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
   }
 
   .hero-media {
