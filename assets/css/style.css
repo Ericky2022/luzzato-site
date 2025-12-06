@@ -1,4 +1,4 @@
-o de:root {
+:root {
   --bg-main: #050505;
   --bg-section: #0d0d0d;
   --bg-card: #141414;
@@ -50,81 +50,98 @@ a {
 
 /* HEADER */
 
-header {
+.site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 50;
   backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.75), transparent);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.82),
+    transparent
+  );
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
   padding: 1.1rem 1.5rem;
 }
 
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  letter-spacing: 0.25em;
-  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .logo-mark {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
   border: 1px solid var(--accent);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-family: "Playfair Display", serif;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 2.2rem;
-  font-size: 0.9rem;
+.logo-text {
+  letter-spacing: 0.32em;
 }
 
-.nav-link {
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 0.9rem;
+  transition: transform var(--transition-fast);
+  justify-content: center;
+  flex: 1;
+}
+
+.main-nav a {
   position: relative;
   color: var(--text-muted);
+  padding: 0.2rem 0;
   transition: color var(--transition-fast);
 }
 
-.nav-link::after {
+.main-nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -0.45rem;
+  bottom: -0.4rem;
   width: 0;
   height: 1px;
   background: var(--accent);
   transition: width var(--transition-fast);
 }
 
-.nav-link:hover {
+.main-nav a:hover {
   color: var(--text-primary);
 }
 
-.nav-link:hover::after {
+.main-nav a:hover::after {
   width: 100%;
 }
 
 .header-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   align-items: center;
   font-size: 0.9rem;
+  margin-left: auto;
 }
 
 .icon-btn {
@@ -132,12 +149,13 @@ nav {
   height: 34px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   background: rgba(0, 0, 0, 0.6);
-      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+  transition: background var(--transition-fast), transform var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .icon-btn:hover {
@@ -189,8 +207,43 @@ nav {
   transform: translateY(-1px);
 }
 
-.mobile-menu-toggle {
+.menu-toggle {
   display: none;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 6px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 999px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.menu-toggle span + span {
+  margin-top: 5px;
+}
+
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 /* HERO */
@@ -198,26 +251,21 @@ nav {
 .hero {
   position: relative;
   padding: 2.5rem 0 3.5rem;
-  background: linear-gradient(
-      90deg,
-      rgba(5, 5, 5, 0.92) 0%,
-      rgba(5, 5, 5, 0.82) 32%,
-      rgba(5, 5, 5, 0.65) 58%,
-      rgba(5, 5, 5, 0.38) 100%
-    ),
-    url("../img/sofa-capa.png");
-  background-size: 100% 100%, 70%;
-  background-position: center, right center;
-  background-repeat: no-repeat;
+  background: radial-gradient(circle at 20% 20%, #121212 0%, #050505 55%, #000 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 -60px 120px rgba(0, 0, 0, 0.65);
+  box-shadow: inset 0 -40px 100px rgba(0, 0, 0, 0.55);
 }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 2.5rem;
   align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-heading {
@@ -262,6 +310,28 @@ nav {
   color: var(--text-primary);
   font-size: 1.1rem;
   margin-bottom: 0.1rem;
+}
+
+.hero-media {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-media-card {
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem 1.5rem 1rem;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65);
+}
+
+.hero-media-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.6));
 }
 
 .hero-badge {
@@ -796,23 +866,48 @@ footer {
 /* RESPONSIVE */
 
 @media (max-width: 960px) {
-  nav {
-    display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
-  }
-
   .header-inner {
     padding-inline: 1rem;
+  }
+
+  .main-nav {
+    position: fixed;
+    inset: 0 0 0 35%;
+    background: #050505;
+    flex-direction: column;
+    flex: 0 0 auto;
+    padding: 5rem 1.5rem 2rem;
+    gap: 1.25rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 40;
+  }
+
+  .main-nav a {
+    font-size: 1rem;
+  }
+
+  .main-nav.nav-open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .header-actions {
+    gap: 0.5rem;
   }
 
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .hero-image-wrapper {
+  .hero-media {
     order: -1;
   }
 
@@ -859,15 +954,11 @@ footer {
     gap: 1.2rem;
   }
 
-  .sofa {
-    background-image: url("../img/sofa-capa.png");
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 
 @media (max-width: 768px) {
     .hero {
@@ -896,19 +987,23 @@ footer {
     align-items: stretch;
   }
 
-  .hero-cta .primary-btn,
-  .hero-cta .ghost-btn {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
+    .hero-cta .primary-btn,
+    .hero-cta .ghost-btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
 
-  /* imagem + cards */
-  .hero-image-wrapper {
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 1.25rem 2rem;
-    gap: 1.25rem;
+    /* imagem + cards */
+    .hero-media-card {
+      max-width: none;
+    }
+
+    .hero-image-wrapper {
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1.25rem 2rem;
+      gap: 1.25rem;
     min-height: auto;
   }
 
@@ -1052,196 +1147,5 @@ footer {
 @media (max-width: 600px) {
   .departments-grid {
     grid-template-columns: 1fr;
-  }
-}
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(5, 5, 5, 0.96);
-  backdrop-filter: blur(12px);
-}
-
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-/* Logo */
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-}
-
-.logo-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  border: 1px solid #c7a87c;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  color: #ffffff;
-}
-
-.logo-text {
-  letter-spacing: 0.4em;
-  font-size: 0.75rem;
-  color: #ffffff;
-}
-
-/* Navegação desktop */
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.main-nav a {
-  color: #b3b3b3;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.main-nav a:hover {
-  color: #ffffff;
-}
-
-/* Botão hamburguer (desktop some) */
-
-.menu-toggle {
-  display: none;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: #ffffff;
-  border-radius: 999px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.menu-toggle span + span {
-  margin-top: 6px;
-}
-
-/* MOBILE */
-
-@media (max-width: 900px) {
-  .header-inner {
-    padding-inline: 1rem;
-  }
-
-  /* Nav vira painel lateral */
-  .main-nav {
-    position: fixed;
-    inset: 0 0 0 35%;
-    background: #050505;
-    flex-direction: column;
-    padding: 5rem 1.5rem 2rem;
-    gap: 1.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-  }
-
-  .main-nav a {
-    font-size: 1rem;
-  }
-
-  .main-nav.nav-open {
-    transform: translateX(0);
-  }
-
-  /* Exibe o hamburguer no mobile */
-  .menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* Animação do X quando aberto */
-  .menu-toggle.is-active span:nth-child(1) {
-    transform: translateY(4px) rotate(45deg);
-  }
-  .menu-toggle.is-active span:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-toggle.is-active span:nth-child(3) {
-    transform: translateY(-4px) rotate(-45deg);
-  }
-
-  /* trava scroll qdo menu aberto */
-  body.menu-open {
-    overflow: hidden;
-  }
-}
-
-@media (max-width: 900px) {
-  /* Se tiver um container principal do hero, tipicamente .hero ou .hero-grid */
-  .hero-section,
-  .hero,
-  .hero-inner {
-    padding: 2.5rem 1.25rem 2rem;
-  }
-
-  /* Texto do hero ocupando a largura toda, centralizado ou alinhado à esquerda */
-  .hero-copy {
-    max-width: 100%;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-    line-height: 1.1;
-  }
-
-  .hero-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .hero-ctas {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-ctas a,
-  .hero-ctas button {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Bloco da imagem do sofá */
-  .hero-image-wrapper {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem 1.25rem 2rem;
-    margin-top: 1.5rem;
-  }
-
-  .hero-main-img {
-    width: 100%;
-    min-height: 220px;
-    background-size: contain;
-    background-position: center bottom;
-  }
-
-  .hero-side {
-    width: 100%;
   }
 }

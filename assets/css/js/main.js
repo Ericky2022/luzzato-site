@@ -4,25 +4,6 @@ if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
-// MENU MOBILE
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
-
-if (menuToggle && mainNav) {
-  menuToggle.addEventListener("click", () => {
-    mainNav.classList.toggle("nav-open");
-    menuToggle.classList.toggle("is-open");
-  });
-
-  // Fechar menu ao clicar em um link
-  mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mainNav.classList.remove("nav-open");
-      menuToggle.classList.remove("is-open");
-    });
-  });
-}
-
 // SCROLL SUAVE PARA LINKS ÂNCORA
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -74,5 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.classList.toggle("nav-open");
     toggle.classList.toggle("is-active");
     document.body.classList.toggle("menu-open");
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("nav-open");
+      toggle.classList.remove("is-active");
+      document.body.classList.remove("menu-open");
+    });
   });
 });
