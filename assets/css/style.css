@@ -292,15 +292,14 @@
 
 .hero-main-img {
   flex: 2.1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
+  background-image: url("../img/sofa_premium.png"); /* ou o nome que você estiver usando */
+  background-repeat: no-repeat;
 
-  min-height: 420px;
-  overflow: hidden;
+  /* MOSTRA O SOFÁ INTEIRO */
+  background-size: contain;
+  background-position: center bottom;
 
-  border-radius: 16px;
+  min-height: 320px;
 
   /* sombra suave premium */
   box-shadow: 0 18px 65px rgba(0, 0, 0, 0.45);
@@ -872,4 +871,68 @@
     height: 100%;
     object-fit: contain;
   }
+}
+
+.department-hero {
+  display: flex;
+  align-items: center;
+  padding: 4rem 6rem;
+  gap: 4rem;
+  background: #050505;
+  color: white;
+}
+
+.department-hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display";
+}
+
+.department-hero-img img {
+  width: 520px;
+  border-radius: 16px;
+}
+
+.products-section {
+  padding: 4rem 6rem;
+  background: #0b0b0b;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #c7a87c;
+  margin-bottom: 2rem;
+  font-family: "Playfair Display";
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.product-card {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.product-card h3 {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.price {
+  margin-top: 0.4rem;
+  color: #c7a87c;
+  font-weight: bold;
 }
