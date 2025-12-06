@@ -1129,7 +1129,6 @@ footer {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 0.5rem;
 }
 
 .product-media img {
@@ -1316,10 +1315,10 @@ footer {
     padding: 3rem 2rem;
   }
 
-  .products-grid {
+  /* .products-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
-  }
+  } */
 
   .product-card img {
     height: 100%;
