@@ -3,6 +3,7 @@
         {
             "id":1,
             "nome":"Estante Livreiro com 5 Prateleiras",
+            "quantidade": 10,
             "descricao": {
                 "descricao_1":"5 repartiçõess.",
                 "descricao_2":"Ideal para organizar livros e objetos decorativos",
