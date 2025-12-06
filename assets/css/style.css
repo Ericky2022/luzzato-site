@@ -936,3 +936,73 @@
   color: #c7a87c;
   font-weight: bold;
 }
+
+.departments {
+  padding: 4rem 6rem;
+  background: #050505;
+}
+
+.departments .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  color: #c7a87c;
+  margin-bottom: 0.5rem;
+}
+
+.departments .section-subtitle {
+  color: #b3b3b3;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.8rem;
+}
+
+.department-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: #0b0b0b;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.department-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.7);
+  border-color: rgba(199, 168, 124, 0.8);
+}
+
+.department-image {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+}
+
+.department-card h3 {
+  padding: 1rem 1.25rem 1.2rem;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .departments {
+    padding: 3rem 1.5rem;
+  }
+
+  .departments-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .departments-grid {
+    grid-template-columns: 1fr;
+  }
+}
