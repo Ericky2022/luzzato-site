@@ -1345,3 +1345,73 @@ footer {
     height: 100%;
   }
 }
+
+
+/* Botão hamburguer */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+/* MENU MOBILE */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* ESCONDIDO */
+  height: 100vh;
+  width: 70%;
+  background: #0e0e0e;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: right 0.35s ease-in-out;
+  z-index: 9999;
+}
+
+.mobile-menu a {
+  color: #fff;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: .7rem;
+}
+
+/* QUANDO O MENU ESTIVER ABERTO */
+.mobile-menu.open {
+  right: 0;
+}
+
+/* Overlay para bloquear o fundo */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 9990;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav.main-nav {
+    display: none !important;
+  }
+}

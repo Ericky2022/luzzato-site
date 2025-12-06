@@ -65,3 +65,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const toggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("mobile-menu");
+
+// Criar overlay dinamicamente
+let overlay = document.createElement("div");
+overlay.classList.add("menu-overlay");
+document.body.appendChild(overlay);
+
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("open");
+  overlay.classList.toggle("active");
+});
+
+// Fechar menu ao clicar no overlay
+overlay.addEventListener("click", () => {
+  menu.classList.remove("open");
+  overlay.classList.remove("active");
+});
