@@ -17,35 +17,28 @@
       <!-- HEADER -->
       <header class="site-header">
         <div class="header-inner">
-    <a href="index.html" class="logo">
-      <span class="logo-mark">LZ</span>
-      <span class="logo-text">LUZZATO</span>
-    </a>
+          <a href="index.html" class="logo">
+            <span class="logo-mark">LZ</span>
+            <span class="logo-text">LUZZATO</span>
+          </a>
 
-    <!-- Botão hamburguer -->
-    <button class="menu-toggle" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Menu principal -->
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="sala/index.html">Sala</a>
-      <a href="quarto/index.html">Quarto</a>
-      <a href="infantil/index.html">Infantil</a>
-      <a href="cozinha/index.html">Cozinha</a>
-      <a href="escritorio/index.html">Escritório</a>
-    </nav>
-  </div>
+          <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="sala/index.html">Sala</a>
+            <a href="quarto/index.html">Quarto</a>
+            <a href="infantil/index.html">Infantil</a>
+            <a href="cozinha/index.html">Cozinha</a>
+            <a href="escritorio/index.html">Escritório</a>
+          </nav>
 
           <div class="header-actions">
             <button class="icon-btn" aria-label="Buscar">🔍</button>
             <button class="icon-btn" aria-label="Minha conta">👤</button>
             <button class="icon-btn" aria-label="Carrinho">🛒</button>
-            <button class="mobile-menu-toggle icon-btn" aria-label="Menu">
-              ☰
+            <button class="menu-toggle" aria-label="Abrir menu">
+              <span></span>
+              <span></span>
+              <span></span>
             </button>
           </div>
         </div>
@@ -55,7 +48,7 @@
       <main>
         <section class="hero">
           <div class="container hero-inner">
-            <div class="sofa">
+            <div class="hero-content">
               <div class="hero-badge">coleção 2025 · móveis autorais</div>
               <h1 class="hero-heading">
                 O design que <br />
@@ -90,6 +83,12 @@
                   <strong>4,9★</strong>
                   avaliação média dos clientes
                 </div>
+              </div>
+            </div>
+
+            <div class="hero-media" aria-hidden="true">
+              <div class="hero-media-card">
+                <img src="assets/img/sofa-capa.png" alt="Sofá da coleção 2025" />
               </div>
             </div>
           </div>
@@ -159,9 +158,9 @@
             </div>
 
             <div class="hero-image-wrapper" aria-hidden="true">
-              <div class="hero-main-img">
-                <img src="/assets/img/sofa_premium.png" alt="Sofá Milano" />
-              </div>
+                <div class="hero-main-img">
+                  <img src="assets/img/sofa_premium.png" alt="Sofá Milano" />
+                </div>
               <div class="hero-side">
                 <div class="hero-side-card">
                   <span>sofá milano · linho grafite</span>
@@ -511,6 +510,6 @@
       // ano automático no footer
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script src="/assets/css/js/main.js"></script>
+    <script src="assets/css/js/main.js"></script>
   </body>
 </html>
