@@ -82,11 +82,10 @@ a {
   font-size: 0.78rem;
   text-transform: uppercase;
   font-weight: 600;
+  height: 4rem !important;
 }
 
 .logo-mark {
-  width: 28px;
-  height: 28px;
   border-radius: 999px;
   border: 1px solid var(--accent);
   display: inline-flex;
