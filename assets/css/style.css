@@ -1410,8 +1410,4 @@ footer {
   .menu-toggle {
     display: flex;
   }
-
-  nav.main-nav {
-    display: none !important;
-  }
 }
