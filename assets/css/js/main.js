@@ -9,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const targetId = this.getAttribute("href");
     if (targetId && targetId.length > 1) {
-      e.preventDefault();
+      // e.preventDefault();
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         window.scrollTo({
@@ -75,4 +75,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   overlay.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu   = document.querySelector(".mobile-menu");
+  const links  = menu.querySelectorAll("a");
+  const overlay = document.querySelector(".menu-overlay");
+
+  // abre / fecha o menu
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("open");
+    overlay.classList.toggle("active");
+  });
+
+  // ao clicar em um link: só fecha o menu
+  // (NÃO usa preventDefault – o link navega normalmente)
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      overlay.classList.remove("active");
+      // sem preventDefault aqui
+    });
+  });
+
+  // clicar fora fecha também
+  overlay.addEventListener("click", () => {
+    menu.classList.remove("open");
+    overlay.classList.remove("active");
+  });
 });
