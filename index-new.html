@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luzzato Móveis - Design que Transforma Ambientes</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style-new.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -12,31 +12,29 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header class="site-header">
-      <div class="header-inner">
-        <a href="../index.html" class="logo">
+    <header class="header">
+      <div class="header-container">
+        <a href="index-new.html" class="logo">
           <img
-            src="	https://i0.wp.com/luzzato.com.br/wp-content/uploads/2024/10/Sem-Titulo-1-1.png?w=1000&ssl=1"
-            alt=""
+            src="https://i0.wp.com/luzzato.com.br/wp-content/uploads/2024/10/Sem-Titulo-1-1.png?w=1000&ssl=1"
+            alt="Luzzato"
           />
-          <!-- <span class="logo-mark">LZ</span>
-            <span class="logo-text">LUZZATO</span> -->
         </a>
 
-        <nav class="main-nav">
-          <a href="../index.html">Home</a>
-          <a href="../sala/index.html">Sala</a>
-          <a href="../quarto/index.html">Quarto</a>
-          <a href="../infantil/index.html">Infantil</a>
-          <a href="../cozinha/index.html">Cozinha</a>
-          <a href="../escritorio/index.html">Escritório</a>
+        <nav class="nav" id="nav">
+          <a href="index-new.html">Home</a>
+          <a href="sala/index.html">Sala</a>
+          <a href="quarto/index.html">Quarto</a>
+          <a href="infantil/index.html">Infantil</a>
+          <a href="cozinha/index.html">Cozinha</a>
+          <a href="escritorio/index.html">Escritório</a>
         </nav>
 
         <div class="header-actions">
-          <button class="icon-btn" aria-label="Buscar">🔍</button>
-          <button class="icon-btn" aria-label="Minha conta">👤</button>
-          <button class="icon-btn" aria-label="Carrinho">🛒</button>
-          <button class="menu-toggle" aria-label="Abrir menu">
+          <button class="btn-icon">🔍</button>
+          <button class="btn-icon">👤</button>
+          <button class="btn-icon">🛒</button>
+          <button class="btn-menu" id="btnMenu">
             <span></span>
             <span></span>
             <span></span>
@@ -44,9 +42,6 @@
         </div>
       </div>
     </header>
-
-    <!-- Overlay do menu mobile -->
-    <div class="menu-overlay" id="menuOverlay"></div>
 
     <!-- HERO -->
     <section class="hero">

@@ -46,41 +46,53 @@ if ("IntersectionObserver" in window) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".main-nav");
+  // Suporte para ambos os menus (antigo e novo)
+  const toggle =
+    document.querySelector(".menu-toggle") ||
+    document.querySelector(".btn-menu");
+  const nav =
+    document.querySelector(".main-nav") || document.querySelector(".nav");
+  const overlay =
+    document.getElementById("menuOverlay") ||
+    document.querySelector(".menu-overlay");
 
   if (!toggle || !nav) return;
 
-  // Criar overlay dinamicamente
-  const overlay = document.createElement("div");
-  overlay.classList.add("menu-overlay");
-  document.body.appendChild(overlay);
+  // Criar overlay dinamicamente se não existir
+  let overlayElement = overlay;
+  if (!overlayElement) {
+    overlayElement = document.createElement("div");
+    overlayElement.classList.add("menu-overlay");
+    overlayElement.id = "menuOverlay";
+    document.body.appendChild(overlayElement);
+  }
 
   const closeMenu = () => {
-    nav.classList.remove("nav-open");
+    nav.classList.remove("nav-open", "active");
     toggle.classList.remove("is-active");
     document.body.classList.remove("menu-open");
-    overlay.classList.remove("active");
+    overlayElement.classList.remove("active");
   };
 
   toggle.addEventListener("click", () => {
     nav.classList.toggle("nav-open");
+    nav.classList.toggle("active");
     toggle.classList.toggle("is-active");
     document.body.classList.toggle("menu-open");
-    overlay.classList.toggle("active");
+    overlayElement.classList.toggle("active");
   });
 
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
 
-  overlay.addEventListener("click", closeMenu);
+  overlayElement.addEventListener("click", closeMenu);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".menu-toggle");
-  const menu   = document.querySelector(".mobile-menu");
-  const links  = menu.querySelectorAll("a");
+  const menu = document.querySelector(".mobile-menu");
+  const links = menu.querySelectorAll("a");
   const overlay = document.querySelector(".menu-overlay");
 
   // abre / fecha o menu
@@ -91,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ao clicar em um link: só fecha o menu
   // (NÃO usa preventDefault – o link navega normalmente)
-  links.forEach(link => {
+  links.forEach((link) => {
     link.addEventListener("click", () => {
       menu.classList.remove("open");
       overlay.classList.remove("active");

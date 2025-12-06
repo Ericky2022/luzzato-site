@@ -144,194 +144,6 @@ button {
 }
 
 /* ========================================
-   SUPORTE PARA PÁGINAS ANTIGAS (sala, quarto, etc)
-======================================== */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 1000;
-}
-
-.header-inner {
-  max-width: var(--max-width);
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.main-nav {
-  display: flex;
-  gap: 2rem;
-  flex: 1;
-  justify-content: center;
-}
-
-.main-nav a {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  transition: color 0.3s;
-}
-
-.main-nav a:hover {
-  color: var(--accent);
-}
-
-.icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  background: transparent;
-  cursor: pointer;
-}
-
-.icon-btn:hover {
-  border-color: var(--accent);
-  background: rgba(199, 168, 124, 0.1);
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  width: 36px;
-  height: 36px;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  width: 18px;
-  height: 2px;
-  background: white;
-  transition: all 0.3s;
-  display: block;
-}
-
-/* Estilos para páginas de departamento */
-.department-hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4rem 6rem;
-  gap: 4rem;
-  background: #050505;
-  color: white;
-}
-
-.department-hero-text {
-  flex: 1;
-  max-width: 540px;
-}
-
-.department-hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  font-family: "Playfair Display", serif;
-}
-
-.department-hero-text p {
-  color: #e6e6e6;
-  line-height: 1.5;
-}
-
-.department-hero-img {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.department-hero-img img {
-  width: 520px;
-  max-width: 100%;
-  border-radius: 16px;
-  height: auto;
-}
-
-.products-section {
-  padding: 4rem 6rem;
-  background: #0b0b0b;
-}
-
-.section-title {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 2rem;
-  font-family: "Playfair Display", serif;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem;
-}
-
-.product-card {
-  background: #111;
-  padding: 1.5rem;
-  border-radius: 16px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-.product-media {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(145deg, #0f0f0f 0%, #0a0a0a 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-
-.product-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.product-card h3 {
-  margin-top: 1rem;
-  color: #fff;
-  font-size: 1.1rem;
-}
-
-.price {
-  margin-top: 0.4rem;
-  color: var(--accent);
-  font-weight: bold;
-}
-
-/* ========================================
    HERO
 ======================================== */
 body {
@@ -595,25 +407,6 @@ body {
   font-size: 0.85rem;
 }
 
-/* Overlay para menu mobile */
-.menu-overlay {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.menu-overlay.active {
-  display: block;
-  opacity: 1;
-}
-
 /* ========================================
    RESPONSIVO
 ======================================== */
@@ -624,8 +417,7 @@ body {
     padding-top: 70px;
   }
 
-  .header,
-  .site-header {
+  .header {
     height: 70px;
   }
 
@@ -638,8 +430,7 @@ body {
     top: 70px;
     right: 0;
     bottom: 0;
-    width: 75%;
-    max-width: 320px;
+    width: 280px;
     background: rgba(0, 0, 0, 0.98);
     flex-direction: column;
     justify-content: flex-start;
@@ -648,71 +439,14 @@ body {
     transform: translateX(100%);
     transition: transform 0.3s;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   }
 
   .nav.active {
     transform: translateX(0);
   }
 
-  .nav a {
-    color: white;
-    font-size: 1.1rem;
-  }
-
   .btn-menu {
     display: flex;
-  }
-
-  /* Suporte para páginas antigas */
-  .site-header {
-    height: 70px;
-  }
-
-  .main-nav {
-    position: fixed;
-    top: 70px;
-    right: 0;
-    bottom: 0;
-    width: 75%;
-    max-width: 320px;
-    background: rgba(0, 0, 0, 0.98);
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 2rem;
-    gap: 1.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-    z-index: 1001;
-  }
-
-  .main-nav.nav-open {
-    transform: translateX(0);
-  }
-
-  .main-nav a {
-    color: white;
-    font-size: 1.1rem;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
-  .department-hero {
-    padding: 3rem 2.25rem;
-    gap: 2.5rem;
-  }
-
-  .products-section {
-    padding: 3rem 2.25rem;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
   }
 
   .hero-grid {
@@ -738,8 +472,7 @@ body {
     padding: 0 1rem;
   }
 
-  .header-container,
-  .header-inner {
+  .header-container {
     padding: 0 1rem;
   }
 
@@ -772,39 +505,5 @@ body {
 
   .footer-grid {
     grid-template-columns: 1fr;
-  }
-
-  /* Páginas antigas */
-  .department-hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 2.5rem 1.25rem;
-    gap: 1.75rem;
-  }
-
-  .department-hero-text {
-    max-width: 100%;
-  }
-
-  .department-hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .department-hero-img {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .department-hero-img img {
-    max-width: 360px;
-  }
-
-  .products-section {
-    padding: 3rem 1.25rem;
-  }
-
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }

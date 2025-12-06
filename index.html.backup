@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css?v=3" />
+    <title>Luzzato Móveis</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <!-- HEADER -->
+      <header class="site-header">
+        <div class="header-inner">
+          <a href="index.html" class="logo">
+            <img
+              src="	https://i0.wp.com/luzzato.com.br/wp-content/uploads/2024/10/Sem-Titulo-1-1.png?w=1000&ssl=1"
+              alt=""
+            />
+            <!-- <span class="logo-mark">LZ</span>
+            <span class="logo-text">LUZZATO</span> -->
+          </a>
+
+          <nav id="mobile-menu" class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="sala/index.html">Sala</a>
+            <a href="quarto/index.html">Quarto</a>
+            <a href="infantil/index.html">Infantil</a>
+            <a href="cozinha/index.html">Cozinha</a>
+            <a href="escritorio/index.html">Escritório</a>
+          </nav>
+
+          <div class="header-actions">
+            <button class="icon-btn" aria-label="Buscar">🔍</button>
+            <button class="icon-btn" aria-label="Minha conta">👤</button>
+            <button class="icon-btn" aria-label="Carrinho">🛒</button>
+            <button class="menu-toggle" aria-label="Abrir menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <main>
+        <section class="hero">
+          <div class="container hero-inner">
+            <div class="hero-content">
+              <div class="hero-badge">coleção 2025 · móveis autorais</div>
+              <h1 class="hero-heading">
+                O design que <br />
+                transforma <br />
+                ambientes.
+              </h1>
+              <p class="hero-sub">
+                Peças assinadas, acabamentos nobres e conforto absoluto para
+                quem vê a casa como extensão da própria identidade.
+              </p>
+
+              <div class="hero-cta">
+                <button class="primary-btn">Ver coleção completa</button>
+                <button class="ghost-btn">Agendar atendimento</button>
+              </div>
+
+              <p class="hero-note">
+                Entrega nacional · Produção sob medida · Pagamento seguro em até
+                10x
+              </p>
+
+              <div class="hero-meta">
+                <div>
+                  <strong>+1.200</strong>
+                  ambientes assinados
+                </div>
+                <div>
+                  <strong>15 anos</strong>
+                  de experiência em mobiliário premium
+                </div>
+                <div>
+                  <strong>4,9★</strong>
+                  avaliação média dos clientes
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-media" aria-hidden="true">
+              <div class="hero-stage">
+                <div class="hero-stage-glow"></div>
+                <div class="hero-stage-floor"></div>
+                <img
+                  src="assets/img/sofa-capa.png"
+                  alt="Sofá da coleção 2025"
+                  class="hero-sofa"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-scroll-hint">
+            <span>Descubra a coleção</span>
+          </div>
+        </section>
+        <!-- MARQUEE / FAIXA EDITORIAL -->
+        <section class="marquee">
+          <div class="marquee-track">
+            <span
+              >LUZZATO STUDIO • ALFAIATARIA CONTEMPORÂNEA • EDIÇÕES LIMITADAS •
+              LUXURY ESSENTIALS •</span
+            >
+            <span
+              >LUZZATO STUDIO • ALFAIATARIA CONTEMPORÂNEA • EDIÇÕES LIMITADAS •
+              LUXURY ESSENTIALS •</span
+            >
+          </div>
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section class="benefits">
+          <div class="container benefits-grid" data-animate="fade-up">
+            <div class="benefit-item">
+              <h4>Frete premium</h4>
+              <p>Envio rápido e seguro com embalagem exclusiva.</p>
+            </div>
+            <div class="benefit-item">
+              <h4>Parcelamento</h4>
+              <p>Até 6x sem juros nos principais cartões.</p>
+            </div>
+            <div class="benefit-item">
+              <h4>Troca facilitada</h4>
+              <p>Primeira troca gratuita em até 30 dias.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDITORIAL / CAMPANHA -->
+        <section class="editorial" data-animate="fade-up">
+          <div class="container editorial-card">
+            <div class="editorial-text">
+              <span class="editorial-tag">Campanha</span>
+              <h2>Luxury Essentials</h2>
+              <p>
+                Uma seleção curada de peças-chave para um guarda-roupa versátil
+                e atemporal. Do escritório ao jantar, a mesma elegância em
+                diferentes atmosferas.
+              </p>
+
+              <div class="hero-meta">
+                <div>
+                  <strong>+1.200</strong>
+                  ambientes assinados
+                </div>
+                <div>
+                  <strong>15 anos</strong>
+                  de experiência em mobiliário premium
+                </div>
+                <div>
+                  <strong>4,9★</strong>
+                  avaliação média dos clientes
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-image-wrapper" aria-hidden="true">
+              <div class="hero-main-img">
+                <img src="assets/img/sofa_premium.png" alt="Sofá Milano" />
+              </div>
+              <div class="hero-side">
+                <div class="hero-side-card">
+                  <span>sofá milano · linho grafite</span>
+                  <h4>Conforto que se nota à distância.</h4>
+                  <p>
+                    Profundidade generosa, percintas italianas e espuma de alta
+                    resiliência para longas horas de descanso sem perder o
+                    desenho.
+                  </p>
+                </div>
+                <div class="hero-side-card">
+                  <span>curadoria luzzato</span>
+                  <h4>Madeiras selecionadas peça a peça.</h4>
+                  <p>
+                    Estruturas em madeira maciça com certificação, tonalidades
+                    escolhidas para dialogar com o seu projeto arquitetônico.
+                  </p>
+                </div>
+                <div class="hero-pill">
+                  Produção sob medida a partir de
+                  <strong>30 dias úteis</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COLEÇÕES EM DESTAQUE -->
+        <section class="section-collections">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-kicker">Coleções em destaque</div>
+              <div class="section-title">Escolha o seu universo</div>
+              <div class="section-subtitle">
+                Três linhas pensadas para estilos de vida diferentes, todas com
+                a mesma assinatura: proporção equilibrada e acabamentos
+                impecáveis.
+              </div>
+            </div>
+
+            <div class="collections-grid">
+              <article class="collection-card">
+                <div class="collection-image"></div>
+                <div class="collection-body">
+                  <div class="collection-name">Essência</div>
+                  <p class="collection-desc">
+                    Tons claros, texturas naturais e uma atmosfera leve que faz
+                    o ambiente respirar.
+                  </p>
+                  <div class="collection-meta">Salas de estar luminosas</div>
+                </div>
+              </article>
+
+              <article class="collection-card">
+                <div class="collection-image"></div>
+                <div class="collection-body">
+                  <div class="collection-name">Contemporânea</div>
+                  <p class="collection-desc">
+                    Linhas retas, contrastes marcantes e sofisticação discreta
+                    para projetos urbanos.
+                  </p>
+                  <div class="collection-meta">Design para o agora</div>
+                </div>
+              </article>
+
+              <article class="collection-card">
+                <div class="collection-image"></div>
+                <div class="collection-body">
+                  <div class="collection-name">Premium</div>
+                  <p class="collection-desc">
+                    Couros selecionados, metais nobres e soluções de alto
+                    impacto para ambientes de destaque.
+                  </p>
+                  <div class="collection-meta">Peças de assinatura</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="departments" id="departamentos">
+          <div class="container">
+            <h2 class="section-title">Departamentos</h2>
+            <p class="section-subtitle">
+              Encontre os móveis ideais para cada ambiente da sua casa.
+            </p>
+
+            <div class="departments-grid">
+              <a href="./sala/index.html" class="department-card">
+                <div
+                  class="department-image"
+                  style="background-image: url('./assets/sala/sala-hero.jpg')"
+                ></div>
+                <h3>Sala de Estar</h3>
+              </a>
+
+              <a href="./quarto/index.html" class="department-card">
+                <div
+                  class="department-image"
+                  style="
+                    background-image: url('./assets/quarto/quarto-hero.jpg');
+                  "
+                ></div>
+                <h3>Quarto</h3>
+              </a>
+
+              <a href="./infantil/index.html" class="department-card">
+                <div
+                  class="department-image"
+                  style="
+                    background-image: url('./assets/infantil/infantil-hero.jpg');
+                  "
+                ></div>
+                <h3>Quarto Infantil</h3>
+              </a>
+
+              <a href="./cozinha/index.html" class="department-card">
+                <div
+                  class="department-image"
+                  style="
+                    background-image: url('./assets/cozinha/cozinha-hero.jpg');
+                  "
+                ></div>
+                <h3>Cozinha / Jantar</h3>
+              </a>
+
+              <a href="./escritorio/index.html" class="department-card">
+                <div
+                  class="department-image"
+                  style="
+                    background-image: url('./assets/escritorio/escritorio-hero.jpg');
+                  "
+                ></div>
+                <h3>Escritório</h3>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- BEST SELLERS -->
+        <section class="section-bestsellers">
+          <div class="container">
+            <div class="bestsellers-header">
+              <div class="section-header" style="margin-bottom: 0">
+                <div class="section-kicker">Mais desejados</div>
+                <div class="section-title">Best sellers da Luzzato</div>
+              </div>
+              <button class="ghost-btn">Ver todos os produtos</button>
+            </div>
+
+            <div class="products-grid">
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-body">
+                  <div class="product-name">Sofá Milano · 3 lugares</div>
+                  <div class="product-price">R$ 3.990,00</div>
+                  <div class="product-detail">
+                    Estrutura em madeira maciça, linho areia, almofadas soltas.
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-body">
+                  <div class="product-name">Poltrona Verona</div>
+                  <div class="product-price">R$ 1.890,00</div>
+                  <div class="product-detail">
+                    Couro natural, base giratória em aço escovado.
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-body">
+                  <div class="product-name">Mesa de Jantar Roma</div>
+                  <div class="product-price">R$ 4.890,00</div>
+                  <div class="product-detail">
+                    Tampo em lâmina de nogueira e base escultural.
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-body">
+                  <div class="product-name">Cadeira Toscana</div>
+                  <div class="product-price">R$ 890,00</div>
+                  <div class="product-detail">
+                    Estofado em linho, pés em madeira avermelhada.
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- POR QUE ESCOLHER -->
+        <section class="section-why">
+          <div class="container">
+            <div class="why-grid">
+              <div>
+                <div class="section-header">
+                  <div class="section-kicker">Por que escolher a Luzzato</div>
+                  <div class="section-title">
+                    Mais que móveis, experiências.
+                  </div>
+                  <div class="section-subtitle">
+                    Cada peça é pensada para dialogar com a arquitetura do seu
+                    ambiente, unindo ergonomia, durabilidade e um olhar
+                    cuidadoso para cada detalhe.
+                  </div>
+                </div>
+
+                <div class="why-items">
+                  <article class="why-card">
+                    <div class="why-icon">◎</div>
+                    <h4>Design autoral</h4>
+                    <p>
+                      Assinaturas exclusivas e proporções refinadas que fogem do
+                      óbvio e valorizam o seu projeto.
+                    </p>
+                  </article>
+
+                  <article class="why-card">
+                    <div class="why-icon">✓</div>
+                    <h4>Materiais nobres</h4>
+                    <p>
+                      Tecidos de alta performance, couros naturais e madeiras
+                      selecionadas peça a peça.
+                    </p>
+                  </article>
+
+                  <article class="why-card">
+                    <div class="why-icon">⧗</div>
+                    <h4>Produção sob medida</h4>
+                    <p>
+                      Medidas, tecidos e acabamentos configuráveis para encaixar
+                      perfeitamente na sua rotina.
+                    </p>
+                  </article>
+
+                  <article class="why-card">
+                    <div class="why-icon">☏</div>
+                    <h4>Atendimento consultivo</h4>
+                    <p>
+                      Equipe preparada para acompanhar do projeto à entrega,
+                      inclusive com suporte pós-venda.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <div class="why-photo" aria-hidden="true"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+          <div class="container">
+            <div class="newsletter-inner">
+              <div class="newsletter-text">
+                <h3>Receba lançamentos em primeira mão</h3>
+                <p>
+                  Inscreva-se para conhecer novas coleções, peças exclusivas e
+                  condições especiais para projetos.
+                </p>
+              </div>
+              <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <div class="newsletter-input">
+                  ✉
+                  <input
+                    type="email"
+                    placeholder="Seu melhor e-mail"
+                    required
+                  />
+                </div>
+                <button class="primary-btn" type="submit">Cadastrar</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer>
+        <div class="container">
+          <div class="footer-grid">
+            <div>
+              <div class="footer-logo"><span>LZ</span> Luzzato Móveis</div>
+              <p class="footer-text">
+                Mobiliário premium pensado para quem entende que cada ambiente
+                merece uma peça à altura da história que ali será vivida.
+              </p>
+            </div>
+
+            <div>
+              <div class="footer-title">Loja</div>
+              <ul class="footer-links">
+                <li><a href="#">Sofás</a></li>
+                <li><a href="#">Poltronas</a></li>
+                <li><a href="#">Salas de jantar</a></li>
+                <li><a href="#">Mesas laterais</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="footer-title">Institucional</div>
+              <ul class="footer-links">
+                <li><a href="#">Sobre a Luzzato</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Atendimento a arquitetos</a></li>
+                <li><a href="#">Política de trocas</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="footer-title">Atendimento</div>
+              <ul class="footer-links">
+                <li><a href="#">WhatsApp comercial</a></li>
+                <li><a href="#">E-mail</a></li>
+                <li><a href="#">Nossas lojas físicas</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div>
+              © <span id="year"></span> Luzzato Móveis. Todos os direitos
+              reservados.
+            </div>
+            <div class="footer-cards">
+              <div class="footer-card-pill">Visa</div>
+              <div class="footer-card-pill">Mastercard</div>
+              <div class="footer-card-pill">Elo</div>
+              <div class="footer-card-pill">Pix</div>
+              <div class="footer-card-pill">Boleto</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // ano automático no footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="assets/css/js/main.js"></script>
+  </body>
+</html>
