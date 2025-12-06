@@ -1057,10 +1057,16 @@ footer {
 .department-hero {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 4rem 6rem;
   gap: 4rem;
   background: #050505;
   color: white;
+}
+
+.department-hero-text {
+  flex: 1;
+  max-width: 540px;
 }
 
 .department-hero-text h1 {
@@ -1069,9 +1075,22 @@ footer {
   font-family: "Playfair Display";
 }
 
+.department-hero-text p {
+  color: #e6e6e6;
+  line-height: 1.5;
+}
+
+.department-hero-img {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .department-hero-img img {
   width: 520px;
+  max-width: 100%;
   border-radius: 16px;
+  height: auto;
 }
 
 .products-section {
@@ -1180,10 +1199,51 @@ footer {
   .departments-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .department-hero {
+    padding: 3rem 2.25rem;
+    gap: 2.5rem;
+  }
+
+  .department-hero-img {
+    justify-content: center;
+  }
+
+  .department-hero-img img {
+    max-width: 420px;
+  }
+
+  .products-section {
+    padding: 3rem 2.25rem;
+  }
 }
 
 @media (max-width: 600px) {
   .departments-grid {
     grid-template-columns: 1fr;
+  }
+
+  .department-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.25rem;
+    gap: 1.75rem;
+  }
+
+  .department-hero-text {
+    max-width: 100%;
+  }
+
+  .department-hero-img {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .department-hero-img img {
+    max-width: 360px;
+  }
+
+  .products-section {
+    padding: 3rem 1.25rem;
   }
 }
