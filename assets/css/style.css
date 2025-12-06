@@ -24,6 +24,8 @@ body {
   background: radial-gradient(circle at top, #111 0, #050505 40%, #000 100%);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+  /* evita rolagem horizontal em telas estreitas causada por sombras e grids */
+  overflow-x: hidden;
 }
 
 img {
@@ -915,7 +917,8 @@ footer {
     position: fixed;
     inset: 0;
     max-width: 360px;
-    width: 20%;
+    /* ocupa a maior parte da tela sem extrapolar em celulares */
+    width: min(360px, 85vw);
     margin-left: auto;
     background: rgba(5, 5, 5, 0.96);
     backdrop-filter: blur(16px);
