@@ -73,7 +73,7 @@ function abrirModalProduto(id) {
 
   btnCarrinho.onclick = () => {
     addAoCarrinho(produto, 1);
-    alert('Produto adicionado ao carrinho!');
+    // alert('Produto adicionado ao carrinho!');
   };
 
   btnComprar.onclick = () => {

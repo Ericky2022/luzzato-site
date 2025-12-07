@@ -206,6 +206,30 @@ button {
   background: rgba(199, 168, 124, 0.1);
 }
 
+/* Botão do carrinho com contador */
+.carrinho-btn {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+.carrinho-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;

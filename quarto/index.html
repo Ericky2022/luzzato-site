@@ -10,7 +10,7 @@
   <body>
     <!-- HEADER -->
     <header class="site-header">
-      <a href="carrinho.html" class="carrinho-link">
+      <a href="../assets/css/carrinho.html" class="carrinho-link">
         🛒 <span id="carrinho-contador">0</span>
       </a>
       <div class="header-inner">
@@ -35,7 +35,14 @@
         <div class="header-actions">
           <button class="icon-btn" aria-label="Buscar">🔍</button>
           <button class="icon-btn" aria-label="Minha conta">👤</button>
-          <button class="icon-btn" aria-label="Carrinho">🛒</button>
+          <a
+            href="../assets/css/carrinho.html"
+            class="icon-btn carrinho-btn"
+            aria-label="Carrinho"
+          >
+            🛒
+            <span id="carrinho-contador" class="carrinho-badge">0</span>
+          </a>
           <button class="menu-toggle" aria-label="Abrir menu">
             <span></span>
             <span></span>
@@ -103,6 +110,6 @@
       <p>© 2025 Luzzato • Móveis Premium</p>
     </footer>
     <script src="../assets/css/js/main.js" defer></script>
-    <script src="js/carrinho.js"></script>
+    <script src="../assets/css/js/carrinho.js"></script>
   </body>
 </html>
