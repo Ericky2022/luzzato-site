@@ -2,7 +2,7 @@
     "produtos":[
         {
             "id":1,
-            "nome":"Estante Livreiro com 5 Prateleiras",
+            "nome":"Estante Livreiro com 5 Prateleiras Branca",
             "quantidade": 10,
             "descricao": {
                 "descricao_1":"5 repartiçõess.",
@@ -16,7 +16,43 @@
                 "profundidade":0.30
             },
             "preco":439.0,
-            "imagem":"cadeira_escritorio.jpg"
+            "imagem":"https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Branco.png"
+        },
+        {
+            "id":2,
+            "nome":"Estante Livreiro com 5 Prateleiras Mel",
+            "quantidade": 10,
+            "descricao": {
+                "descricao_1":"5 repartiçõess.",
+                "descricao_2":"Ideal para organizar livros e objetos decorativos",
+                "descricao_3":"Grande quantidade de compartilhamento para boa organização",
+                "descricao_4":"Rodapé"
+            },
+            "medidas":{
+                "largura":0.52,
+                "altura":1.78,
+                "profundidade":0.30
+            },
+            "preco":439.0,
+            "imagem":"https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Mel.png"
+        },
+        {
+            "id":3,
+            "nome":"Estante Livreiro com 5 Prateleiras Preto",
+            "quantidade": 10,
+            "descricao": {
+                "descricao_1":"5 repartiçõess.",
+                "descricao_2":"Ideal para organizar livros e objetos decorativos",
+                "descricao_3":"Grande quantidade de compartilhamento para boa organização",
+                "descricao_4":"Rodapé"
+            },
+            "medidas":{
+                "largura":0.52,
+                "altura":1.78,
+                "profundidade":0.30
+            },
+            "preco":439.0,
+            "imagem":"https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Cor-Preto.png"
         },
         {
             "id":2,
