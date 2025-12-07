@@ -1,84 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Carrinho</title>
-  <link rel="stylesheet" href="seu.css">
-</head>
-<body>
-  <header>
-    <!-- seu menu aqui -->
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luzzato • Carrinho de Compras</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="../../index.html" class="logo">
+          <img src="../../assets/img/loja/logo-banner.png" alt="Luzzato" />
+        </a>
 
-  <main class="carrinho-page">
-    <h1>Seu carrinho</h1>
+        <nav class="main-nav">
+          <a href="../../index.html">Home</a>
+          <a href="../../sala/index.html">Sala</a>
+          <a href="../../quarto/index.html">Quarto</a>
+          <a href="../../cozinha/index.html">Cozinha</a>
+          <a href="../../banheiro/index.html">Banheiro</a>
+          <a href="../../Lavanderia/index.html">Lavanderia</a>
+          <a href="../../infantil/index.html">Infantil</a>
+          <a href="../../escritorio/index.html">Escritório</a>
+        </nav>
 
-    <div id="carrinho-itens"></div>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Buscar">🔍</button>
+          <button class="icon-btn" aria-label="Minha conta">👤</button>
+          <a
+            href="carrinho.html"
+            class="icon-btn carrinho-btn"
+            aria-label="Carrinho"
+          >
+            🛒
+            <span id="carrinho-contador" class="carrinho-badge">0</span>
+          </a>
+          <button class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-    <div id="carrinho-resumo">
-      <p>Total: <strong id="carrinho-total"></strong></p>
-      <button id="btn-finalizar" class="btn-primary">Finalizar compra</button>
-    </div>
-  </main>
+    <!-- Overlay do menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-  <script src="js/carrinho.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      carregarCarrinho();
-      atualizarIconeCarrinho();
-      renderizarCarrinho();
-    });
+    <!-- CARRINHO -->
+    <section class="carrinho-page">
+      <div class="container">
+        <h1 class="page-title">Carrinho de Compras</h1>
 
-    function renderizarCarrinho() {
-      const container = document.getElementById('carrinho-itens');
-      const totalEl = document.getElementById('carrinho-total');
+        <div class="carrinho-container">
+          <div class="carrinho-itens-wrapper">
+            <div id="carrinho-itens"></div>
+          </div>
 
-      if (carrinho.length === 0) {
-        container.innerHTML = '<p>Seu carrinho está vazio.</p>';
-        totalEl.textContent = 'R$ 0,00';
-        return;
-      }
+          <div class="carrinho-resumo">
+            <h2>Resumo do Pedido</h2>
+            <div class="resumo-linha">
+              <span>Subtotal:</span>
+              <strong id="carrinho-subtotal">R$ 0,00</strong>
+            </div>
+            <div class="resumo-linha">
+              <span>Frete:</span>
+              <strong>A calcular</strong>
+            </div>
+            <div class="resumo-linha total">
+              <span>Total:</span>
+              <strong id="carrinho-total">R$ 0,00</strong>
+            </div>
+            <button id="btn-finalizar" class="btn-primary">
+              Finalizar Compra
+            </button>
+            <a href="../../index.html" class="btn-secondary"
+              >Continuar Comprando</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
-      let html = '';
-      let total = 0;
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© 2025 Luzzato • Móveis Premium</p>
+    </footer>
 
-      carrinho.forEach(item => {
-        const subtotal = item.preco * item.quantidade;
-        total += subtotal;
+    <script src="../js/main.js" defer></script>
+    <script src="js/carrinho.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        carregarCarrinho();
+        atualizarIconeCarrinho();
+        renderizarCarrinho();
+      });
 
-        html += `
+      function renderizarCarrinho() {
+        const container = document.getElementById("carrinho-itens");
+        const totalEl = document.getElementById("carrinho-total");
+        const subtotalEl = document.getElementById("carrinho-subtotal");
+
+        if (carrinho.length === 0) {
+          container.innerHTML =
+            '<div class="carrinho-vazio"><p>Seu carrinho está vazio.</p><a href="../../index.html" class="btn-primary">Ver Produtos</a></div>';
+          totalEl.textContent = "R$ 0,00";
+          subtotalEl.textContent = "R$ 0,00";
+          return;
+        }
+
+        let html = "";
+        let total = 0;
+
+        for (const item of carrinho) {
+          const subtotal = item.preco * item.quantidade;
+          total += subtotal;
+
+          html += `
           <div class="carrinho-item">
             <img src="${item.imagem}" alt="${item.nome}">
             <div class="carrinho-info">
               <h3>${item.nome}</h3>
-              <p>Preço: R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
-              <p>Qtd: ${item.quantidade}</p>
-              <p>Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}</p>
-              <button onclick="removerDoCarrinho(${item.id}); renderizarCarrinho();">
-                Remover
-              </button>
+              <p class="preco-item">R$ ${item.preco
+                .toFixed(2)
+                .replace(".", ",")}</p>
+              <p>Quantidade: ${item.quantidade}</p>
+              <p>Subtotal: <strong>R$ ${subtotal
+                .toFixed(2)
+                .replace(".", ",")}</strong></p>
             </div>
+            <button class="btn-remover" onclick="removerDoCarrinho(${
+              item.id
+            }); renderizarCarrinho();">
+              Remover
+            </button>
           </div>
         `;
-      });
+        }
 
-      container.innerHTML = html;
-      totalEl.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
-    }
-
-    document.getElementById('btn-finalizar').onclick = () => {
-      finalizarCompra();
-    };
-
-    function finalizarCompra() {
-      if (carrinho.length === 0) {
-        alert('Seu carrinho está vazio.');
-        return;
+        container.innerHTML = html;
+        totalEl.textContent = "R$ " + total.toFixed(2).replace(".", ",");
+        subtotalEl.textContent = "R$ " + total.toFixed(2).replace(".", ",");
       }
 
-      // AQUI entra o fluxo que você escolher (ver abaixo)
-      alert('Aqui entraria o fluxo de pagamento/checkout.');
-    }
-  </script>
-</body>
+      document.getElementById("btn-finalizar").onclick = () => {
+        finalizarCompra();
+      };
+
+      function finalizarCompra() {
+        if (carrinho.length === 0) {
+          alert("Seu carrinho está vazio.");
+          return;
+        }
+
+        alert("Redirecionando para o checkout...");
+        // Aqui você pode redirecionar para uma página de checkout
+        // window.location.href = 'checkout.html';
+      }
+    </script>
+  </body>
 </html>
