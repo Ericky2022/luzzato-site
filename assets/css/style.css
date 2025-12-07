@@ -1278,3 +1278,311 @@ body {
     text-align: center;
   }
 }
+
+/* =======================
+   CARROSSEL DE PROMOÇÕES
+   ======================= */
+
+.promo-carousel {
+  background: var(--bg-dark);
+  padding: 5rem 0;
+}
+
+.promo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.promo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.promo-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.promo-header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.promo-ver-tudo {
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.promo-ver-tudo:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Wrapper do carrossel */
+.promo-carousel-wrapper {
+  position: relative;
+  padding: 0 3.5rem;
+}
+
+.promo-carousel-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.promo-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Botões laterais */
+.promo-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(199, 168, 124, 0.9);
+  color: #000;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  z-index: 2;
+}
+
+.promo-carousel-btn:hover {
+  background: var(--accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.promo-prev {
+  left: 0;
+}
+
+.promo-next {
+  right: 0;
+}
+
+/* Cards */
+.promo-card {
+  min-width: calc((100% - 4rem) / 3);
+  flex: 0 0 calc((100% - 4rem) / 3);
+  box-sizing: border-box;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: all 0.3s;
+}
+
+.promo-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(199, 168, 124, 0.2);
+}
+
+.promo-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.promo-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Selo de desconto */
+.promo-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #e53935;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 1;
+}
+
+/* Preços */
+.promo-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.promo-price {
+  margin: 0 0 1.5rem;
+}
+
+.promo-old {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.promo-new {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* Botão CTA */
+.promo-cta {
+  margin-top: auto;
+  padding: 0.875rem 1.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.promo-cta:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Dots */
+.promo-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.promo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.promo-dot:hover {
+  background: rgba(199, 168, 124, 0.5);
+}
+
+.promo-dot.active {
+  width: 10px;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .promo-carousel {
+    padding: 4rem 0;
+  }
+
+  .promo-header h2 {
+    font-size: 2rem;
+  }
+
+  .promo-card {
+    min-width: calc((100% - 2rem) / 2);
+    flex: 0 0 calc((100% - 2rem) / 2);
+  }
+
+  .promo-carousel-track {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo-carousel {
+    padding: 3rem 0;
+  }
+
+  .promo-container {
+    padding: 0 1rem;
+  }
+
+  .promo-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .promo-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .promo-carousel-wrapper {
+    padding: 0;
+  }
+
+  .promo-carousel-btn {
+    display: none;
+  }
+
+  .promo-card {
+    min-width: 85%;
+    flex: 0 0 85%;
+  }
+
+  .promo-card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .promo-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .promo-card {
+    min-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .promo-carousel-track {
+    gap: 1rem;
+  }
+}

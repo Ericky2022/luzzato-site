@@ -117,3 +117,91 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.remove("active");
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".promo-carousel-track");
+    const cards = Array.from(document.querySelectorAll(".promo-card"));
+    const prevBtn = document.querySelector(".promo-prev");
+    const nextBtn = document.querySelector(".promo-next");
+    const dotsContainer = document.querySelector(".promo-dots");
+
+    if (!track || cards.length === 0) return;
+
+    // Quantidade de cards visíveis (desktop)
+    function getVisibleCards() {
+      if (window.innerWidth <= 600) return 1;
+      if (window.innerWidth <= 900) return 2;
+      return 3;
+    }
+
+    let currentIndex = 0;
+    let visibleCards = getVisibleCards();
+
+    // Cria dots com base no número de "páginas"
+    function createDots() {
+      dotsContainer.innerHTML = "";
+      visibleCards = getVisibleCards();
+      const totalPages = Math.ceil(cards.length / visibleCards);
+
+      for (let i = 0; i < totalPages; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("promo-dot");
+        if (i === 0) dot.classList.add("active");
+        dot.dataset.index = i;
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateActiveDot() {
+      const dots = dotsContainer.querySelectorAll(".promo-dot");
+      dots.forEach(dot => dot.classList.remove("active"));
+      const pageIndex = Math.floor(currentIndex / visibleCards);
+      if (dots[pageIndex]) dots[pageIndex].classList.add("active");
+    }
+
+    function goToSlide(pageIndex) {
+      visibleCards = getVisibleCards();
+      const maxIndex = cards.length - visibleCards;
+      currentIndex = Math.min(pageIndex * visibleCards, maxIndex);
+      const cardWidth = cards[0].offsetWidth + 16; // largura + margin
+      track.scrollTo({
+        left: currentIndex * cardWidth,
+        behavior: "smooth"
+      });
+      updateActiveDot();
+    }
+
+    function next() {
+      visibleCards = getVisibleCards();
+      const maxIndex = cards.length - visibleCards;
+      if (currentIndex < maxIndex) {
+        currentIndex += visibleCards;
+      } else {
+        currentIndex = 0; // volta ao início
+      }
+      goToSlide(Math.floor(currentIndex / visibleCards));
+    }
+
+    function prev() {
+      visibleCards = getVisibleCards();
+      const maxIndex = cards.length - visibleCards;
+      if (currentIndex > 0) {
+        currentIndex -= visibleCards;
+      } else {
+        currentIndex = maxIndex;
+      }
+      goToSlide(Math.floor(currentIndex / visibleCards));
+    }
+
+    createDots();
+
+    nextBtn && nextBtn.addEventListener("click", next);
+    prevBtn && prevBtn.addEventListener("click", prev);
+
+    window.addEventListener("resize", () => {
+      // Recria os dots e realinha o carrossel quando mudar o tamanho da tela
+      createDots();
+      goToSlide(0);
+    });
+  });
