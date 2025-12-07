@@ -320,6 +320,9 @@ button {
   object-fit: contain;
   border-radius: 8px;
   transition: transform 0.4s ease;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.06) saturate(1.04);
 }
 
 .product-media:hover img,
@@ -965,6 +968,9 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #0f0f0f;
   padding: 1rem;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.06) saturate(1.04);
 }
 
 .modal-right {
