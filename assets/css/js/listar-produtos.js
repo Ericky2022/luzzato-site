@@ -25,9 +25,9 @@ function carregarProdutos(categoria, containerId) {
           <p class="price">R$ ${p.preco.toFixed(2).replace(".", ",")}</p>
         `;
 
-        // evento de clique na imagem (pode ser no card inteiro se preferir)
-        const img = card.querySelector(".product-media img");
-        img.addEventListener("click", () => {
+        // evento de clique no container da imagem
+        const productMedia = card.querySelector(".product-media");
+        productMedia.addEventListener("click", () => {
           abrirModalProduto(p.id);
         });
 

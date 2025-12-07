@@ -61,5 +61,94 @@
     },
     "preco": 439.0,
     "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Cor-Preto.png"
+  },
+  {
+    "id": 4,
+    "categoria": "sala",
+    "cor": "Preto",
+    "nome": "Buffet Union 4 portas com dobradiças de pressão",
+    "quantidade": 10,
+    "descricao_curta": "Buffet Union 4 portas com dobradiças de pressão.",
+    "descricao": [
+      "5 portas com dobradiças de pressão.",
+      "Pés de madeira maciça.",
+      "2 Prateleiras internas.",
+      "Puxadores de madeira maciça.",
+      "Design Moderno."
+    ],
+    "medidas": {
+      "largura": 1.60,
+      "altura": 0.81,
+      "profundidade": 0.43
+    },
+    "preco": 369.0,
+    "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/buffet_union_off_cedro_amb.png"
+  },
+  {
+    "id": 5,
+    "categoria": "sala",
+    "cor": "Preto",
+    "nome": "Painel Fox New para TV até 43 polegadas",
+    "quantidade": 10,
+    "descricao_curta": "Painel Fox New para TV até 43 polegadas.",
+    "descricao": [
+      "Design discreto.",
+      "Produzido em chapa de 15/25mm.",
+      "Espaço para TVs de 43 polegadas.",
+      "Espaço para aparelhos eletrônicos.",
+      "Acabamento com pintura ultra violeta."
+    ],
+    "medidas": {
+      "largura": 0.86,
+      "altura": 1.20,
+      "profundidade": 0.22
+    },
+    "preco": 369.0,
+    "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/PAINEL-FOX-NEW-PRETO.png"
+  },
+  {
+    "id": 6,
+    "categoria": "sala",
+    "cor": "Preto",
+    "nome": "Painel Fox New para TV até 43 polegadas",
+    "quantidade": 10,
+    "descricao_curta": "Painel Fox New para TV até 43 polegadas.",
+    "descricao": [
+      "Design discreto.",
+      "Produzido em chapa de 15/25mm.",
+      "Espaço para TVs de 43 polegadas.",
+      "Espaço para aparelhos eletrônicos.",
+      "Acabamento com pintura ultra violeta."
+    ],
+    "medidas": {
+      "largura": 0.86,
+      "altura": 1.20,
+      "profundidade": 0.22
+    },
+    "preco": 369.0,
+    "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/PAINEL-FOX-NEW-OFF-WHITE-CEDRO-150x150.png"
+  },
+  {
+    "id": 7,
+    "categoria": "sala",
+    "cor": "Preto",
+    "nome": "Painel Fox New para TV até 43 polegadas",
+    "quantidade": 10,
+    "descricao_curta": "Painel Fox New para TV até 43 polegadas.",
+    "descricao": [
+      "Design discreto.",
+      "Produzido em chapa de 15/25mm.",
+      "Espaço para TVs de 43 polegadas.",
+      "Espaço para aparelhos eletrônicos.",
+      "Acabamento com pintura ultra violeta."
+    ],
+    "medidas": {
+      "largura": 0.86,
+      "altura": 1.20,
+      "profundidade": 0.22
+    },
+    "preco": 369.0,
+    "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/PAINEL-FOX-NEW-CEDRO-OFF-WHITE.png"
   }
+
 ]
