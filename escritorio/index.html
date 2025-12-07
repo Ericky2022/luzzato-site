@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luzzato • Quarto</title>
+    <title>Luzzato • Escritório</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
 
@@ -12,12 +12,10 @@
     <header class="site-header">
       <div class="header-inner">
         <a href="../index.html" class="logo">
-          <!-- <span class="logo-mark">LZ</span> -->
           <img
-            src="	https://i0.wp.com/luzzato.com.br/wp-content/uploads/2024/10/Sem-Titulo-1-1.png?w=1000&ssl=1"
-            alt=""
+            src="https://i0.wp.com/luzzato.com.br/wp-content/uploads/2024/10/Sem-Titulo-1-1.png?w=1000&ssl=1"
+            alt="Luzzato"
           />
-          <!-- <span class="logo-text">LUZZATO</span> -->
         </a>
 
         <nav class="main-nav">
@@ -51,64 +49,68 @@
       </div>
     </header>
 
-    <!-- HERO DO DEPARTAMENTO -->
+    <!-- HERO DEPARTAMENTO -->
     <section class="department-hero">
       <div class="department-hero-text">
-        <h1>Quarto</h1>
+        <h1>Escritório</h1>
         <p>
-          Conforto, estética e funcionalidade para transformar o descanso em uma
-          experiência premium.
+          Móveis ergonômicos e modernos para criar um ambiente produtivo e inspirador.
         </p>
       </div>
 
       <div class="department-hero-img">
-        <img src="../img/banner/quarto-banner.png" alt="Quarto Premium" />
+        <img
+          src="../assets/img/loja/page-title-shop-1.png"
+          alt="Escritório"
+        />
       </div>
     </section>
 
-    <!-- PRODUTOS -->
+    <!-- LISTA DE PRODUTOS -->
     <section class="products-section">
-      <h2 class="section-title">Destaques do Quarto</h2>
+      <h2 class="section-title">Destaques do Escritório</h2>
 
-      <div class="products-grid">
-        <!-- Produto 1 -->
-        <div class="product-card">
-          <img src="../img/quarto/cama-casal.png" alt="Cama Casal Elegance" />
-          <h3>Cama Casal Elegance</h3>
-          <p class="price">R$ 2.990,00</p>
-        </div>
+      <div id="produtos-escritorio" class="products-grid"></div>
+    </section>
 
-        <!-- Produto 2 -->
-        <div class="product-card">
-          <img
-            src="../img/quarto/guarda-roupa.png"
-            alt="Guarda-Roupa Luzzato"
-          />
-          <h3>Guarda-Roupa Luzzato</h3>
-          <p class="price">R$ 3.490,00</p>
-        </div>
+    <!-- MODAL DO PRODUTO -->
+    <div id="product-modal" class="product-modal">
+      <div class="modal-backdrop"></div>
 
-        <!-- Produto 3 -->
-        <div class="product-card">
-          <img src="../img/quarto/criado-mudo.png" alt="Criado-Mudo Premium" />
-          <h3>Criado-Mudo Premium</h3>
-          <p class="price">R$ 690,00</p>
-        </div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">&times;</button>
 
-        <!-- Produto 4 -->
-        <div class="product-card">
-          <img src="../img/quarto/cabeceira.png" alt="Cabeceira Estofada" />
-          <h3>Cabeceira Estofada</h3>
-          <p class="price">R$ 890,00</p>
+        <div class="modal-body">
+          <div class="modal-left">
+            <img id="modal-img" src="" alt="" />
+          </div>
+
+          <div class="modal-right">
+            <h2 id="modal-nome">Produto</h2>
+            <p id="modal-preco" class="price"></p>
+
+            <ul id="modal-desc" class="modal-desc-list"></ul>
+
+            <div class="modal-actions">
+              <button id="btn-comprar" class="btn-primary">COMPRAR</button>
+              <button id="btn-carrinho" class="btn-secondary">
+                ADICIONAR AO CARRINHO
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
       <p>© 2025 Luzzato • Móveis Premium</p>
     </footer>
     <script src="../assets/css/js/main.js" defer></script>
+    <script src="../assets/css/js/listar-produtos.js"></script>
+    <script>
+      carregarProdutos("escritorio", "produtos-escritorio");
+    </script>
     <script src="../assets/css/js/carrinho.js"></script>
   </body>
 </html>
