@@ -10,6 +10,9 @@
   <body>
     <!-- HEADER -->
     <header class="site-header">
+      <a href="carrinho.html" class="icone-carrinho">
+        🛒 <span id="carrinho-contador">0</span>
+      </a>
       <div class="header-inner">
         <a href="../index.html" class="logo">
           <img
@@ -116,32 +119,32 @@
 
     <!-- MODAL DO PRODUTO -->
     <div id="product-modal" class="product-modal">
-  <div class="modal-backdrop"></div>
+      <div class="modal-backdrop"></div>
 
-  <div class="modal-content">
-    <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">&times;</button>
 
-    <div class="modal-body">
+        <div class="modal-body">
+          <div class="modal-left">
+            <img id="modal-img" src="" alt="" />
+          </div>
 
-      <div class="modal-left">
-        <img id="modal-img" src="" alt="">
-      </div>
+          <div class="modal-right">
+            <h2 id="modal-nome"></h2>
+            <p id="modal-preco" class="price"></p>
 
-      <div class="modal-right">
-        <h2 id="modal-nome"></h2>
-        <p id="modal-preco" class="price"></p>
+            <ul id="modal-desc" class="modal-desc-list"></ul>
 
-        <ul id="modal-desc" class="modal-desc-list"></ul>
-
-        <div class="modal-actions">
-          <button id="btn-comprar" class="btn-primary">COMPRAR</button>
-          <button id="btn-carrinho" class="btn-secondary">ADICIONAR AO CARRINHO</button>
+            <div class="modal-actions">
+              <button id="btn-comprar" class="btn-primary">COMPRAR</button>
+              <button id="btn-carrinho" class="btn-secondary">
+                ADICIONAR AO CARRINHO
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
-</div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -152,5 +155,6 @@
     <script>
       carregarProdutos("sala", "produtos-sala");
     </script>
+    <script src="js/carrinho.js"></script>
   </body>
 </html>

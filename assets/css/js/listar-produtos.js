@@ -67,6 +67,22 @@ function abrirModalProduto(id) {
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden"; // bloqueia scroll da página
+
+  const btnComprar = document.getElementById('btn-comprar');
+  const btnCarrinho = document.getElementById('btn-carrinho');
+
+  btnCarrinho.onclick = () => {
+    addAoCarrinho(produto, 1);
+    alert('Produto adicionado ao carrinho!');
+  };
+
+  btnComprar.onclick = () => {
+    addAoCarrinho(produto, 1);
+    window.location.href = 'carrinho.html'; // vai para página do carrinho
+  };
+
+  document.getElementById('product-modal').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
 }
 
 // fechar modal

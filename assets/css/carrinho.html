@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrinho</title>
+  <link rel="stylesheet" href="seu.css">
+</head>
+<body>
+  <header>
+    <!-- seu menu aqui -->
+  </header>
+
+  <main class="carrinho-page">
+    <h1>Seu carrinho</h1>
+
+    <div id="carrinho-itens"></div>
+
+    <div id="carrinho-resumo">
+      <p>Total: <strong id="carrinho-total"></strong></p>
+      <button id="btn-finalizar" class="btn-primary">Finalizar compra</button>
+    </div>
+  </main>
+
+  <script src="js/carrinho.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      carregarCarrinho();
+      atualizarIconeCarrinho();
+      renderizarCarrinho();
+    });
+
+    function renderizarCarrinho() {
+      const container = document.getElementById('carrinho-itens');
+      const totalEl = document.getElementById('carrinho-total');
+
+      if (carrinho.length === 0) {
+        container.innerHTML = '<p>Seu carrinho está vazio.</p>';
+        totalEl.textContent = 'R$ 0,00';
+        return;
+      }
+
+      let html = '';
+      let total = 0;
+
+      carrinho.forEach(item => {
+        const subtotal = item.preco * item.quantidade;
+        total += subtotal;
+
+        html += `
+          <div class="carrinho-item">
+            <img src="${item.imagem}" alt="${item.nome}">
+            <div class="carrinho-info">
+              <h3>${item.nome}</h3>
+              <p>Preço: R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
+              <p>Qtd: ${item.quantidade}</p>
+              <p>Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}</p>
+              <button onclick="removerDoCarrinho(${item.id}); renderizarCarrinho();">
+                Remover
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      totalEl.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+    }
+
+    document.getElementById('btn-finalizar').onclick = () => {
+      finalizarCompra();
+    };
+
+    function finalizarCompra() {
+      if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio.');
+        return;
+      }
+
+      // AQUI entra o fluxo que você escolher (ver abaixo)
+      alert('Aqui entraria o fluxo de pagamento/checkout.');
+    }
+  </script>
+</body>
+</html>
