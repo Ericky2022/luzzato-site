@@ -1,65 +1,65 @@
-[{
-    "produtos":[
-        {
-            "id":1,
-            "nome":"Estante Livreiro com 5 Prateleiras Branca",
-            "quantidade": 10,
-            "descricao": {
-                "descricao_1":"5 repartiçõess.",
-                "descricao_2":"Ideal para organizar livros e objetos decorativos",
-                "descricao_3":"Grande quantidade de compartilhamento para boa organização",
-                "descricao_4":"Rodapé"
-            },
-            "medidas":{
-                "largura":0.52,
-                "altura":1.78,
-                "profundidade":0.30
-            },
-            "preco":439.0,
-            "imagem":"https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Branco.png"
-        },
-        {
-            "id":2,
-            "nome":"Estante Livreiro com 5 Prateleiras Mel",
-            "quantidade": 10,
-            "descricao": {
-                "descricao_1":"5 repartiçõess.",
-                "descricao_2":"Ideal para organizar livros e objetos decorativos",
-                "descricao_3":"Grande quantidade de compartilhamento para boa organização",
-                "descricao_4":"Rodapé"
-            },
-            "medidas":{
-                "largura":0.52,
-                "altura":1.78,
-                "profundidade":0.30
-            },
-            "preco":439.0,
-            "imagem":"https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Mel.png"
-        },
-        {
-            "id":3,
-            "nome":"Estante Livreiro com 5 Prateleiras Preto",
-            "quantidade": 10,
-            "descricao": {
-                "descricao_1":"5 repartiçõess.",
-                "descricao_2":"Ideal para organizar livros e objetos decorativos",
-                "descricao_3":"Grande quantidade de compartilhamento para boa organização",
-                "descricao_4":"Rodapé"
-            },
-            "medidas":{
-                "largura":0.52,
-                "altura":1.78,
-                "profundidade":0.30
-            },
-            "preco":439.0,
-            "imagem":"https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Cor-Preto.png"
-        },
-        {
-            "id":2,
-            "nome":"Mesa de Jantar",
-            "descricao":"Mesa de jantar em madeira maciça para 6 pessoas.",
-            "preco":1299.00,
-            "imagem":"mesa_jantar.jpg"
-        }
-    ]
-}]
+[
+  {
+    "id": 1,
+    "categoria": "sala",
+    "cor": "Branco",
+    "nome": "Estante Livreiro com 5 Prateleiras Branca",
+    "quantidade": 10,
+    "descricao_curta": "Estante livreiro com 5 prateleiras, ideal para livros e decoração.",
+    "descricao": [
+      "5 repartições.",
+      "Ideal para organizar livros e objetos decorativos.",
+      "Grande quantidade de compartimentos para boa organização.",
+      "Com rodapé."
+    ],
+    "medidas": {
+      "largura": 0.52,
+      "altura": 1.78,
+      "profundidade": 0.30
+    },
+    "preco": 439.0,
+    "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Branco.png"
+  },
+  {
+    "id": 2,
+    "categoria": "sala",
+    "cor": "Mel",
+    "nome": "Estante Livreiro com 5 Prateleiras Mel",
+    "quantidade": 10,
+    "descricao_curta": "Estante livreiro com 5 prateleiras na cor Mel.",
+    "descricao": [
+      "5 repartições.",
+      "Ideal para organizar livros e objetos decorativos.",
+      "Grande quantidade de compartimentos para boa organização.",
+      "Com rodapé."
+    ],
+    "medidas": {
+      "largura": 0.52,
+      "altura": 1.78,
+      "profundidade": 0.30
+    },
+    "preco": 439.0,
+    "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Mel.png"
+  },
+  {
+    "id": 3,
+    "categoria": "sala",
+    "cor": "Preto",
+    "nome": "Estante Livreiro com 5 Prateleiras Preto",
+    "quantidade": 10,
+    "descricao_curta": "Estante livreiro com 5 prateleiras na cor preta.",
+    "descricao": [
+      "5 repartições.",
+      "Ideal para organizar livros e objetos decorativos.",
+      "Grande quantidade de compartimentos para boa organização.",
+      "Com rodapé."
+    ],
+    "medidas": {
+      "largura": 0.52,
+      "altura": 1.78,
+      "profundidade": 0.30
+    },
+    "preco": 439.0,
+    "imagem": "https://raw.githubusercontent.com/Ericky2022/luzzato-site/master/assets/img/loja/sala/Estante-Livreiro-Mirage-com-4-Prateleiras-Viero-Cor-Preto.png"
+  }
+]

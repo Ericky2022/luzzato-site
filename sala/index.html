@@ -110,12 +110,48 @@
           <p class="price">R$ 1.290,00</p>
         </div>
       </div>
+
+      <div id="produtos-sala" class="products-grid"></div>
     </section>
+
+    <div id="product-modal" class="product-modal">
+      <div class="product-modal-backdrop"></div>
+
+      <div class="product-modal-content">
+        <button class="product-modal-close" id="product-modal-close">
+          &times;
+        </button>
+
+        <div class="product-modal-body">
+          <div class="product-modal-media">
+            <img id="modal-produto-imagem" src="" alt="" />
+          </div>
+
+          <div class="product-modal-info">
+            <h2 id="modal-produto-nome"></h2>
+            <p class="price" id="modal-produto-preco"></p>
+
+            <ul id="modal-produto-descricao"></ul>
+
+            <div class="product-modal-actions">
+              <button id="btn-comprar" class="btn-primary">Comprar</button>
+              <button id="btn-add-carrinho" class="btn-secondary">
+                Adicionar ao carrinho
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
       <p>© 2025 Luzzato • Móveis Premium</p>
     </footer>
     <script src="../assets/css/js/main.js" defer></script>
+    <script src="../assets/css/js/listar-produtos.js"></script>
+    <script>
+      carregarProdutos("sala", "produtos-sala");
+    </script>
   </body>
 </html>
