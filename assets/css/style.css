@@ -79,12 +79,15 @@ button {
 .logo {
   height: 50px;
   flex-shrink: 0;
+  background: transparent;
 }
 
 .logo img {
   height: 100%;
   width: auto;
   object-fit: contain;
+  background: transparent;
+  mix-blend-mode: screen;
 }
 
 .nav {
