@@ -35,52 +35,32 @@ function carregarProdutos(categoria, containerId) {
     .catch(err => console.error("Erro ao carregar produtos:", err));
 }
 
-function abrirModalProduto(produtoId) {
-  const produto = produtosCache.find(p => p.id === produtoId);
+function abrirModalProduto(id) {
+  const produto = produtosCache.find(p => p.id === id);
   if (!produto) return;
 
-  const modal = document.getElementById('product-modal');
-  const imgEl = document.getElementById('modal-produto-imagem');
-  const nomeEl = document.getElementById('modal-produto-nome');
-  const precoEl = document.getElementById('modal-produto-preco');
-  const descListEl = document.getElementById('modal-produto-descricao');
+  // Preencher modal
+  document.getElementById("modal-img").src = produto.imagem;
+  document.getElementById("modal-img").alt = produto.nome;
 
-  imgEl.src = produto.imagem;
-  imgEl.alt = produto.nome;
-  nomeEl.textContent = produto.nome;
-  precoEl.textContent = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+  document.getElementById("modal-nome").textContent = produto.nome;
 
-  // limpa descrição
-  descListEl.innerHTML = "";
+  document.getElementById("modal-preco").textContent =
+    "R$ " + produto.preco.toFixed(2).replace('.', ',');
 
-  // se descricao é array (como combinamos)
-  if (Array.isArray(produto.descricao)) {
+  // Descrição
+  const descList = document.getElementById("modal-desc");
+  descList.innerHTML = "";
+
+  if (produto.descricao && Array.isArray(produto.descricao)) {
     produto.descricao.forEach(texto => {
-      const li = document.createElement('li');
+      const li = document.createElement("li");
       li.textContent = texto;
-      descListEl.appendChild(li);
+      descList.appendChild(li);
     });
-  } else if (typeof produto.descricao_curta === 'string') {
-    const li = document.createElement('li');
-    li.textContent = produto.descricao_curta;
-    descListEl.appendChild(li);
   }
 
-  // você pode ligar os botões a um carrinho depois
-  const btnComprar = document.getElementById('btn-comprar');
-  const btnAddCarrinho = document.getElementById('btn-add-carrinho');
-
-  btnComprar.onclick = () => {
-    alert(`Comprar agora: ${produto.nome}`);
-    // aqui depois você pode redirecionar para checkout, etc.
-  };
-
-  btnAddCarrinho.onclick = () => {
-    alert(`Produto adicionado ao carrinho: ${produto.nome}`);
-    // aqui depois você pode chamar uma função addAoCarrinho(produto)
-  };
-
-  modal.classList.add('is-open');
+  document.getElementById("product-modal").classList.add("is-open");
 }
 
 // fechar modal
