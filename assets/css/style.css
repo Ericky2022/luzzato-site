@@ -702,6 +702,71 @@ body {
   font-family: "Playfair Display", serif;
 }
 
+/* Calculadora de Frete */
+.calcular-frete {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calcular-frete label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cep-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cep-input-group input {
+  flex: 1;
+  padding: 0.75rem;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.cep-input-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn-calcular {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-calcular:hover {
+  background: #d7b889;
+  transform: translateY(-2px);
+}
+
+.frete-info {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.frete-info.sucesso {
+  color: #4caf50;
+}
+
+.frete-info.erro {
+  color: #ff4444;
+}
+
 .resumo-linha {
   display: flex;
   justify-content: space-between;

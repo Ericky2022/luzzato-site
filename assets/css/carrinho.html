@@ -64,13 +64,29 @@
 
           <div class="carrinho-resumo">
             <h2>Resumo do Pedido</h2>
+
+            <!-- Campo de CEP -->
+            <div class="calcular-frete">
+              <label for="cep-destino">Calcular Frete:</label>
+              <div class="cep-input-group">
+                <input
+                  type="text"
+                  id="cep-destino"
+                  placeholder="00000-000"
+                  maxlength="9"
+                />
+                <button id="btn-calcular-frete" class="btn-calcular">OK</button>
+              </div>
+              <!-- <small id="frete-info" class="frete-info"></small> -->
+            </div>
+
             <div class="resumo-linha">
               <span>Subtotal:</span>
               <strong id="carrinho-subtotal">R$ 0,00</strong>
             </div>
             <div class="resumo-linha">
               <span>Frete:</span>
-              <strong>A calcular</strong>
+              <strong id="valor-frete">A calcular</strong>
             </div>
             <div class="resumo-linha total">
               <span>Total:</span>
@@ -161,6 +177,295 @@
         alert("Redirecionando para o checkout...");
         // Aqui você pode redirecionar para uma página de checkout
         // window.location.href = 'checkout.html';
+      }
+
+      // ========== CALCULADORA DE FRETE ==========
+
+      const cepInput = document.getElementById("cep-destino");
+      const btnCalcular = document.getElementById("btn-calcular-frete");
+      const freteInfo = document.getElementById("frete-info");
+      let valorFrete = 0;
+
+      // Formatar CEP enquanto digita
+      cepInput.addEventListener("input", (e) => {
+        let value = e.target.value.replace(/\D/g, ""); // Remove não-números
+
+        if (value.length > 5) {
+          value = value.substring(0, 5) + "-" + value.substring(5, 8);
+        }
+
+        e.target.value = value;
+      });
+
+      // Calcular frete
+      btnCalcular.addEventListener("click", async () => {
+        const cep = cepInput.value.replace(/\D/g, "");
+
+        if (cep.length !== 8) {
+          mostrarMensagem(
+            "Por favor, insira um CEP válido (8 dígitos)",
+            "erro"
+          );
+          return;
+        }
+
+        btnCalcular.textContent = "...";
+        btnCalcular.disabled = true;
+
+        try {
+          // Validar CEP de destino via ViaCEP
+          const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+          const dados = await response.json();
+
+          if (dados.erro) {
+            throw new Error("CEP não encontrado");
+          }
+
+          console.log(
+            "Calculando distância para:",
+            dados.localidade,
+            "-",
+            dados.uf
+          );
+
+          // Coordenadas fixas do CEP de origem: 05757-180 (Morumbi, SP)
+          const latOrigem = -23.6345;
+          const lonOrigem = -46.7208;
+
+          let latDestino, lonDestino;
+
+          // Tabela de coordenadas aproximadas por cidade/estado
+          const coordenadasCidades = {
+            // São Paulo - principais regiões
+            "São Paulo-SP": { lat: -23.5505, lng: -46.6333 },
+            "Cotia-SP": { lat: -23.6045, lng: -46.9192 },
+            "Osasco-SP": { lat: -23.5329, lng: -46.7919 },
+            "Taboão da Serra-SP": { lat: -23.6022, lng: -46.7586 },
+            "Embu das Artes-SP": { lat: -23.6489, lng: -46.8525 },
+            "Barueri-SP": { lat: -23.5106, lng: -46.8767 },
+            "Carapicuíba-SP": { lat: -23.5225, lng: -46.8356 },
+            // Outros estados - capitais
+            "Rio de Janeiro-RJ": { lat: -22.9068, lng: -43.1729 },
+            "Belo Horizonte-MG": { lat: -19.9167, lng: -43.9345 },
+            "Vitória-ES": { lat: -20.3155, lng: -40.3128 },
+            "Curitiba-PR": { lat: -25.4284, lng: -49.2733 },
+            "Florianópolis-SC": { lat: -27.5954, lng: -48.548 },
+            "Porto Alegre-RS": { lat: -30.0346, lng: -51.2177 },
+            "Brasília-DF": { lat: -15.8267, lng: -47.9218 },
+            "Salvador-BA": { lat: -12.9714, lng: -38.5014 },
+          };
+
+          // Tentar encontrar coordenadas específicas da cidade
+          const chave = `${dados.localidade}-${dados.uf}`;
+
+          if (coordenadasCidades[chave]) {
+            latDestino = coordenadasCidades[chave].lat;
+            lonDestino = coordenadasCidades[chave].lng;
+            console.log(`Usando coordenadas de ${chave}`);
+          } else {
+            // Fallback: usar coordenadas da capital do estado
+            const coordenadasEstados = {
+              SP: { lat: -23.5505, lng: -46.6333 },
+              RJ: { lat: -22.9068, lng: -43.1729 },
+              MG: { lat: -19.9167, lng: -43.9345 },
+              ES: { lat: -20.3155, lng: -40.3128 },
+              PR: { lat: -25.4284, lng: -49.2733 },
+              SC: { lat: -27.5954, lng: -48.548 },
+              RS: { lat: -30.0346, lng: -51.2177 },
+              DF: { lat: -15.8267, lng: -47.9218 },
+              GO: { lat: -16.6869, lng: -49.2648 },
+              MS: { lat: -20.4697, lng: -54.6201 },
+              MT: { lat: -15.6014, lng: -56.0979 },
+              BA: { lat: -12.9714, lng: -38.5014 },
+              SE: { lat: -10.9472, lng: -37.0731 },
+              AL: { lat: -9.6658, lng: -35.735 },
+              PE: { lat: -8.0476, lng: -34.877 },
+              PB: { lat: -7.1195, lng: -34.845 },
+              RN: { lat: -5.7945, lng: -35.211 },
+              CE: { lat: -3.7172, lng: -38.5433 },
+              PI: { lat: -5.0892, lng: -42.8016 },
+              MA: { lat: -2.5307, lng: -44.3068 },
+              PA: { lat: -1.4558, lng: -48.5044 },
+              AP: { lat: 0.0389, lng: -51.0664 },
+              AM: { lat: -3.119, lng: -60.0217 },
+              RR: { lat: 2.8235, lng: -60.6758 },
+              AC: { lat: -9.9753, lng: -67.8243 },
+              RO: { lat: -8.7612, lng: -63.9004 },
+              TO: { lat: -10.1753, lng: -48.2982 },
+            };
+
+            const coordsEstado = coordenadasEstados[dados.uf];
+            if (coordsEstado) {
+              latDestino = coordsEstado.lat;
+              lonDestino = coordsEstado.lng;
+              console.log(`Usando coordenadas da capital de ${dados.uf}`);
+            } else {
+              throw new Error("Estado não encontrado");
+            }
+          }
+
+          // Calcular distância real usando as coordenadas
+          const distanciaReal = calcularDistanciaHaversine(
+            latOrigem,
+            lonOrigem,
+            latDestino,
+            lonDestino
+          );
+
+          console.log("Distância calculada:", distanciaReal);
+
+          // Verificar se a distância é válida
+          if (isNaN(distanciaReal)) {
+            throw new Error("Não foi possível calcular a distância");
+          }
+
+          // Calcular frete e prazo baseado na distância real
+          const resultado = calcularFreteEDistancia(distanciaReal, dados);
+
+          valorFrete = resultado.frete;
+
+          // Exibir distância no console
+          console.log(`========== CÁLCULO DE FRETE ==========`);
+          console.log(`CEP Origem: 05757-180`);
+          console.log(`CEP Destino: ${cep}`);
+          console.log(`Distância: ${distanciaReal.toFixed(1)} KM`);
+          console.log(`Valor do Frete: R$ ${resultado.frete.toFixed(2)}`);
+          console.log(`Prazo de Entrega: ${resultado.prazo} dias`);
+          console.log(`=====================================`);
+
+          // Atualizar interface
+          document.getElementById(
+            "valor-frete"
+          ).textContent = `R$ ${valorFrete.toFixed(2)}`;
+
+          // Recalcular total
+          atualizarTotal();
+
+          // Mostrar informações
+          mostrarMensagem(
+            `${dados.localidade} - ${
+              dados.uf
+            } • Distância: ~${distanciaReal.toFixed(1)} km • Prazo: ${
+              resultado.prazo
+            } dias`,
+            "sucesso"
+          );
+        } catch (error) {
+          console.error("Erro no cálculo:", error);
+          mostrarMensagem(
+            "Erro ao calcular frete. Verifique o CEP e tente novamente.",
+            "erro"
+          );
+          valorFrete = 0;
+          document.getElementById("valor-frete").textContent = "A calcular";
+          atualizarTotal();
+        } finally {
+          btnCalcular.textContent = "OK";
+          btnCalcular.disabled = false;
+        }
+      });
+
+      // Calcular distância entre duas coordenadas usando fórmula de Haversine
+      function calcularDistanciaHaversine(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Raio da Terra em km
+        const dLat = ((lat2 - lat1) * Math.PI) / 180;
+        const dLon = ((lon2 - lon1) * Math.PI) / 180;
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos((lat1 * Math.PI) / 180) *
+            Math.cos((lat2 * Math.PI) / 180) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distancia = R * c;
+        return distancia;
+      }
+
+      function calcularFreteEDistancia(distancia, dados) {
+        let frete = 0;
+        let prazo = "";
+
+        // Determinar prazo baseado no estado
+        const uf = dados.uf;
+        if (uf === "SP") {
+          prazo = "2-3";
+        } else if (["RJ", "ES", "MG"].includes(uf)) {
+          prazo = "3-5";
+        } else if (["PR", "SC", "RS"].includes(uf)) {
+          prazo = "4-6";
+        } else if (["DF", "GO", "MS", "MT", "TO"].includes(uf)) {
+          prazo = "5-7";
+        } else {
+          prazo = "7-10";
+        }
+
+        // Calcular frete baseado na distância (tabela de preços)
+        if (distancia <= 10) {
+          frete = 40.0;
+        } else if (distancia <= 20) {
+          frete = 50.0;
+        } else if (distancia <= 30) {
+          frete = 60.0;
+        } else if (distancia <= 40) {
+          frete = 70.0;
+        } else if (distancia <= 50) {
+          frete = 80.0;
+        } else if (distancia <= 60) {
+          frete = 90.0;
+        } else if (distancia <= 70) {
+          frete = 100.0;
+        } else if (distancia <= 80) {
+          frete = 110.0;
+        } else if (distancia <= 90) {
+          frete = 120.0;
+        } else if (distancia <= 100) {
+          frete = 130.0;
+        } else if (distancia <= 110) {
+          frete = 140.0;
+        } else if (distancia <= 120) {
+          frete = 150.0;
+        } else if (distancia <= 130) {
+          frete = 160.0;
+        } else if (distancia <= 140) {
+          frete = 170.0;
+        } else if (distancia <= 150) {
+          frete = 180.0;
+        } else if (distancia <= 160) {
+          frete = 190.0;
+        } else if (distancia <= 170) {
+          frete = 200.0;
+        } else if (distancia <= 180) {
+          frete = 210.0;
+        } else if (distancia <= 190) {
+          frete = 220.0;
+        } else if (distancia <= 200) {
+          frete = 230.0;
+        } else {
+          // Acima de 200 km: R$ 1,15 por km adicional
+          frete = 230.0 + Math.ceil((distancia - 200) / 10) * 11.5;
+        }
+
+        return { frete, distancia, prazo };
+      }
+
+      function atualizarTotal() {
+        const subtotal = carrinho.reduce((acc, item) => {
+          return acc + item.preco * item.quantidade;
+        }, 0);
+
+        const total = subtotal + valorFrete;
+
+        document.getElementById(
+          "carrinho-subtotal"
+        ).textContent = `R$ ${subtotal.toFixed(2)}`;
+        document.getElementById(
+          "carrinho-total"
+        ).textContent = `R$ ${total.toFixed(2)}`;
+      }
+
+      function mostrarMensagem(texto, tipo) {
+        freteInfo.textContent = texto;
+        freteInfo.className = tipo;
       }
     </script>
   </body>
